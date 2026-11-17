@@ -1,0 +1,136 @@
+/* immport de fontes que me pareçam legais dde se usar no site*/
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap");
+/* ate antes de fazer esse codigo, eu não tinha ideia que dava pra fazer isso*/
+/*fonte para os titulos e textos*/
+h1,
+h2,
+h3 {
+    font-family: "Cinzel", serif;
+}
+
+p,
+a {
+    font-family: "Lora", serif;
+}
+
+/* Configurações gerais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* HEADER */
+header {
+    background-color: #100e12;
+    color: #d0c3b5;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 40px;
+    position: relative;
+
+    border-bottom: 1px solid #542638;
+}
+
+header h1 {
+    font-family: "Cinzel", serif;
+    font-size: 28px;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 25px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+}
+/* botoes do header */
+
+.menu {
+    text-align: center;
+    color: rgb(255, 254, 254);
+    font-family: "Cinzel", sans-serif;
+    font-size: 18px;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    gap: 25px;
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav a {
+    color: #d0c3b5;
+    text-decoration: none;
+    font-family: "Lora", serif;
+}
+
+/* MAIN */
+main {
+    padding: 40px;
+    min-height: 70vh;
+}
+
+/* FOOTER */
+footer {
+    background-color: #000000;
+    color: rgb(253, 252, 252);
+
+    padding: 30px;
+    text-align: center;
+
+    border-top: 3px solid #8b5cf6;
+}
+
+footer p {
+    margin: 5px;
+    font-size: 14px;
+}
+
+/*Icones De perfil e carrinho */
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+}
+
+.header-icons a {
+    color: #d0c3b5;
+    font-size: 22px;
+    transition: 0.3s;
+}
+
+.header-icons a:hover {
+    color: #a34b69;
+}
