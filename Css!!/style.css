@@ -1,10 +1,15 @@
-/* immport de fontes que me pareçam legais dde se usar no site*/
+/* Importei essas fontes do Google Fonts porque queria fugir um pouco
+   das fontes comuns e dar uma identidade mais própria pra loja. */
 @import url("https://fonts.googleapis.com/css2?family=Lilita+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap");
-/* ate antes de fazer esse codigo, eu não tinha ideia que dava pra fazer isso*/
-/*fonte para os titulos e textos*/
+
+/* Antes de fazer esse código, eu nem sabia que dava pra importar fontes assim. */
+
 /* TEMA ESCURO - PADRÃO */
 
+/* Aqui ficam as cores principais do site.
+   Usei variáveis pra não precisar ficar procurando e trocando
+   cada cor individualmente quando quiser mudar o tema. */
 :root {
     color-scheme: dark;
 
@@ -17,7 +22,8 @@
     --accent: #a34b69;
 }
 
-/* Aqui ficam as cores utilizadas quando o site está no tema claro */
+/* Essas são as cores que entram quando o usuário escolhe o tema claro.
+   A ideia é reaproveitar as mesmas variáveis, mas com outros valores. */
 [data-theme="light"] {
     color-scheme: light;
 
@@ -30,13 +36,8 @@
     --accent: #8b3d5a;
 }
 
-/* Faço o botão de tema mudar de aparência quando passo o mouse */
-.theme-toggle:hover {
-    color: var(--accent);
-    transform: rotate(15deg);
-}
-
-/* Defino as fontes utilizadas nos títulos e nos textos */
+/* Os títulos usam uma fonte mais clássica e os textos uma fonte
+   que achei mais fácil de ler. */
 h1,
 h2,
 h3 {
@@ -48,7 +49,9 @@ a {
     font-family: "Lora", serif;
 }
 
-/* Configurações gerais para organizar os elementos da página */
+/* Essa parte é praticamente a base do site inteiro.
+   Tiro as margens padrão do navegador e ajusto o box-sizing
+   pra facilitar na hora de organizar os tamanhos. */
 * {
     margin: 0;
     padding: 0;
@@ -66,20 +69,25 @@ body {
     min-height: 100%;
 }
 
-/* Organizo a página para que o rodapé fique na parte inferior */
+/* Aproveitei o flexbox pra fazer o rodapé ficar no final
+   da página mesmo quando tem pouco conteúdo. */
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* Faço o conteúdo principal ocupar o espaço disponível */
+/* Faço o conteúdo principal ocupar o espaço disponível,
+   evitando que o rodapé fique subindo demais. */
 main {
     flex: 1;
 }
 
 /* HEADER */
-/* Organizo o cabeçalho e mantenho ele visível durante a rolagem */
+
+/* Essa é a parte do cabeçalho.
+   Queria que ele continuasse aparecendo enquanto a pessoa
+   desce a página, então usei position sticky. */
 header {
     background-color: var(--surface);
     color: var(--text);
@@ -95,38 +103,39 @@ header {
     z-index: 1000;
 }
 
-/* Ajusto o título que aparece no cabeçalho */
+/* Aqui ajusto o nome da loja que aparece no cabeçalho. */
 header h1 {
     font-family: "Cinzel", serif;
     font-size: 28px;
     margin: 0;
 }
 
-/* Organizo os links do menu e o espaço entre eles */
+/* Organizo os links do menu e deixo um espaço entre eles. */
 header nav {
     display: flex;
     gap: 25px;
 }
 
-/* Defino a aparência dos links do cabeçalho */
+/* Os links ficam sem aquele sublinhado padrão do navegador. */
 header nav a {
     color: var(--text);
     text-decoration: none;
     transition: color 0.3;
 }
 
-/* Mudo a cor dos links quando passo o mouse */
+/* Quando o mouse passa por cima, o link muda de cor. */
 header nav a:hover {
     color: var(--accent);
 }
 
-/* Defino a aparência dos ícones do cabeçalho */
+/* Os ícones ficam separados dos links principais
+   pra deixar o cabeçalho mais organizado. */
 .header-icons i {
     color: var(--text);
     transition: color 0.3s;
 }
 
-/* Ajusto a aparência dos botões do menu */
+/* Aqui ficam os ajustes do menu de navegação. */
 .menu {
     text-align: center;
     color: var(--text);
@@ -135,7 +144,9 @@ header nav a:hover {
 }
 
 /* NAV */
-/* Organizo os links de navegação e posiciono o menu no centro */
+
+/* Organizo os links de navegação.
+   O transform ajuda a deixar o menu centralizado. */
 nav {
     display: flex;
     gap: 25px;
@@ -145,27 +156,30 @@ nav {
     transform: translateX(-50%);
 }
 
-/* Defino as cores e a fonte dos links de navegação */
+/* Defino a aparência dos links de navegação. */
 nav a {
     color: var(--text);
     text-decoration: none;
     font-family: "Lora", serif;
 }
 
-/* Destaco os links quando o mouse passa por cima */
+/* Um pequeno destaque quando o visitante passa o mouse. */
 nav a:hover {
     color: var(--accent);
 }
 
 /* MAIN */
-/* Defino o espaço interno da área principal */
+
+/* Aqui fica o espaçamento geral do conteúdo das páginas. */
 main {
     padding: 40px;
     min-height: 70vh;
 }
 
 /* FOOTER */
-/* Organizo o rodapé e defino sua aparência */
+
+/* O rodapé usa uma cor diferente do restante da página
+   pra ficar mais fácil perceber onde o conteúdo termina. */
 footer {
     background-color: var(--surface-secondary);
     color: var(--text);
@@ -176,13 +190,13 @@ footer {
     border-top: 3px solid var(--border);
 }
 
-/* Ajusto o espaçamento e o tamanho dos textos do rodapé */
+/* Ajusto o tamanho dos textos que aparecem no rodapé. */
 footer p {
     margin: 5px;
     font-size: 14px;
 }
 
-/* Organizo os ícones de perfil e carrinho */
+/* Os ícones ficam alinhados e com um espaço entre eles. */
 .header-icons {
     display: flex;
     align-items: center;
@@ -190,25 +204,25 @@ footer p {
     margin-left: auto;
 }
 
-/* Defino o tamanho e a aparência dos ícones */
+/* Aqui ajusto o tamanho dos ícones e o efeito ao passar o mouse. */
 .header-icons a {
     color: var(--text);
     font-size: 22px;
     transition: 0.3s;
 }
 
-/* Mudo a cor dos ícones quando passo o mouse */
 .header-icons a:hover {
     color: var(--accent);
 }
 
 /* CARROSSEL */
-/* Defino o espaço entre o carrossel e a próxima seção */
+
+/* Essa seção separa o carrossel da próxima parte da página. */
 .carousel-section {
     margin-bottom: 55px;
 }
 
-/* Ajusto os títulos das seções de carrossel e produtos */
+/* Os títulos das seções seguem o mesmo padrão visual. */
 .carousel-section h2,
 .products-section h2 {
     color: var(--text);
@@ -216,7 +230,8 @@ footer p {
     font-size: 25px;
 }
 
-/* Organizo a área onde o carrossel aparece */
+/* Essa é a área onde os discos aparecem.
+   Usei um degradê pra não deixar o fundo tão simples. */
 .carousel-container {
     position: relative;
     display: flex;
@@ -237,7 +252,8 @@ footer p {
     overflow: hidden;
 }
 
-/* Organizo os discos e permito a rolagem horizontal */
+/* Os discos ficam um ao lado do outro.
+   O scroll-snap ajuda a rolagem a parar em posições mais certinhas. */
 .carousel {
     display: flex;
     align-items: center;
@@ -252,12 +268,14 @@ footer p {
     scrollbar-width: none;
 }
 
-/* Escondo a barra de rolagem do carrossel */
+/* Escondo a barra de rolagem porque ela não combina muito
+   com o visual que imaginei pro carrossel. */
 .carousel::-webkit-scrollbar {
     display: none;
 }
 
-/* Defino o tamanho e a aparência inicial de cada disco */
+/* Os discos começam um pouco menores e transparentes.
+   Assim o disco ativo consegue ganhar mais destaque. */
 .carousel-item {
     flex: 0 0 240px;
 
@@ -275,19 +293,22 @@ footer p {
         opacity 0.45s ease;
 }
 
-/* Dou destaque ao disco que está selecionado no momento */
+/* Quando o JavaScript marca um disco como ativo,
+   ele aumenta e fica totalmente visível. */
 .carousel-item.active {
     transform: scale(1);
     opacity: 1;
 }
 
-/* Destaco os outros discos quando passo o mouse por cima */
+/* Os outros discos também ganham um pequeno destaque
+   quando o visitante passa o mouse por cima. */
 .carousel-item:not(.active):hover {
     transform: scale(0.9);
     opacity: 0.85;
 }
 
-/* Defino o tamanho e o posicionamento das capas */
+/* Todas as capas ficam com o mesmo tamanho pra manter
+   o carrossel visualmente organizado. */
 .carousel-item img {
     width: 220px;
     height: 220px;
@@ -297,12 +318,13 @@ footer p {
     border: 1px solid #59404a;
 }
 
-/* Aumento um pouco o disco quando passo o mouse por cima */
+/* Um efeito de aproximação quando o mouse passa pelo disco. */
 .carousel-item:hover {
     transform: scale(1.08);
 }
 
-/* Organizo os botões utilizados para avançar e voltar o carrossel */
+/* Os botões ficam por cima do carrossel,
+   já que precisam continuar acessíveis durante a navegação. */
 .carousel-btn {
     position: absolute;
     z-index: 2;
@@ -319,28 +341,30 @@ footer p {
     transition: 0.3s;
 }
 
-/* Destaco os botões do carrossel quando são selecionados */
+/* Mudo o fundo do botão quando ele recebe o mouse. */
 .carousel-btn:hover {
     background: var(--accent);
 }
 
-/* Posiciono o botão para voltar os discos */
+/* Botão de voltar. */
 .prev {
     left: 8px;
 }
 
-/* Posiciono o botão para avançar os discos */
+/* Botão de avançar. */
 .next {
     right: 8px;
 }
 
 /* PRODUTOS */
-/* Defino o espaço antes da seção de produtos */
+
+/* Dou um espaço entre o carrossel e a lista de produtos. */
 .products-section {
     margin-top: 45px;
 }
 
-/* Organizo os produtos em uma grade com cinco colunas */
+/* Essa grade organiza os produtos em cinco colunas.
+   Assim consigo mostrar vários discos de uma vez. */
 .products-container {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -349,7 +373,8 @@ footer p {
     width: 100%;
 }
 
-/* Defino a aparência dos cartões de cada produto */
+/* Cada disco fica dentro de um cartão.
+   Coloquei uma pequena animação pra dar mais vida à loja. */
 .product-card {
     background-color: var(--surface);
     border: 1px solid var(--border);
@@ -363,13 +388,14 @@ footer p {
     transition: 0.3s ease;
 }
 
-/* Destaco o cartão quando o mouse passa por cima */
+/* O cartão sobe um pouquinho quando o visitante passa o mouse. */
 .product-card:hover {
     transform: translateY(-6px);
     border-color: var(--accent);
 }
 
-/* Ajusto as capas para que todas tenham o mesmo formato */
+/* Deixo todas as capas no mesmo formato pra não ficar
+   uma bagunça quando os produtos aparecem juntos. */
 .product-card img {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -378,20 +404,21 @@ footer p {
     border-radius: 12px;
 }
 
-/* Ajusto o nome de cada produto */
+/* O nome do disco recebe um tamanho menor que os títulos principais. */
 .product-card h3 {
     font-size: 15px;
     margin-top: 12px;
 }
 
-/* Defino a aparência das informações dos produtos */
+/* Aqui ficam as informações menores de cada produto. */
 .product-card p {
     font-size: 13px;
     color: var(--text-secondary);
     margin-top: 5px;
 }
 
-/* Destaco o preço de cada produto */
+/* Deixo o preço separado das outras informações
+   pra facilitar a identificação. */
 .product-card span {
     display: block;
     margin-top: 12px;
@@ -402,7 +429,9 @@ footer p {
 }
 
 /* RESPONSIVIDADE */
-/* Adapto o carrossel para telas menores */
+
+/* No celular, diminuo o espaço ocupado pelos discos
+   pra eles não ficarem grandes demais. */
 @media (max-width: 600px) {
     .carousel-container {
         padding: 15px 35px;
@@ -418,7 +447,10 @@ footer p {
     }
 }
 
-/* Configurações do botão responsável por trocar o tema */
+/* BOTÃO DE TROCAR TEMA */
+
+/* Esse botão troca o tema do site.
+   Também coloquei um efeitinho de rotação quando passa o mouse. */
 .theme-toggle {
     background: transparent;
     border: none;
@@ -430,14 +462,14 @@ footer p {
     transition: 0.3s;
 }
 
-/* Animação do botão quando passo o mouse por cima */
 .theme-toggle:hover {
     color: var(--accent);
     transform: rotate(15deg);
 }
 
 /* BOTÃO ADICIONAR AO CARRINHO */
-/* Organizo o botão e defino sua aparência */
+
+/* Organizo o botão pra deixar o texto e o ícone alinhados. */
 #adicionar-carrinho {
     display: flex;
     align-items: center;
@@ -461,7 +493,7 @@ footer p {
     transition: all 0.3s ease;
 }
 
-/* Mudo a aparência do botão quando passo o mouse por cima */
+/* O botão ganha outra cor e sobe um pouco quando recebe o mouse. */
 #adicionar-carrinho:hover {
     background: var(--accent);
     border-color: var(--accent);
@@ -471,17 +503,20 @@ footer p {
     box-shadow: 0 6px 18px rgba(163, 75, 105, 0.25);
 }
 
-/* Dou um pequeno efeito quando o botão é pressionado */
+/* Quando clico, ele diminui um pouquinho.
+   É um efeito simples pra dar a sensação de botão pressionado. */
 #adicionar-carrinho:active {
     transform: scale(0.97);
 }
 
-/* Ajusto o tamanho do ícone dentro do botão */
 #adicionar-carrinho i {
     font-size: 20px;
 }
 
-/* Organizo a área que apresenta os detalhes de cada disco */
+/* PÁGINA DE DETALHES DO DISCO */
+
+/* Na página individual de cada disco, deixo a imagem
+   de um lado e as informações do outro. */
 .disco-detalhes {
     display: flex;
     align-items: center;
@@ -492,14 +527,15 @@ footer p {
     padding: 30px;
 }
 
-/* Reservo o espaço onde a capa do disco será exibida */
+/* Reservo uma área só pra imagem da capa. */
 .disco-imagem {
     flex: 1;
     display: flex;
     justify-content: center;
 }
 
-/* Ajusto o tamanho e a aparência da imagem do disco */
+/* O object-fit evita que a capa fique esticada
+   quando a imagem tem proporções diferentes. */
 .disco-imagem img {
     width: 100%;
     max-width: 420px;
@@ -509,7 +545,8 @@ footer p {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
 }
 
-/* Organizo as informações que aparecem ao lado da capa */
+/* As informações ficam uma embaixo da outra,
+   com um espaço entre cada elemento. */
 .disco-info {
     flex: 1;
     display: flex;
@@ -517,28 +554,27 @@ footer p {
     gap: 18px;
 }
 
-/* Ajusto o título com o nome do disco */
 .disco-info h2 {
     color: var(--text);
     font-family: "Cinzel", serif;
     font-size: 30px;
 }
 
-/* Defino a aparência dos textos com as informações do disco */
 .disco-info p {
     color: var(--text-secondary);
     font-family: "Lora", serif;
     line-height: 1.7;
 }
 
-/* Destaco o preço para chamar mais atenção */
+/* O preço recebe uma cor diferente pra chamar atenção. */
 #disco-preco {
     color: var(--accent);
     font-size: 25px;
     font-weight: bold;
 }
 
-/* Adapto a página de detalhes para telas menores */
+/* Em telas menores, coloco a imagem em cima das informações.
+   Assim não fica tudo espremido na horizontal. */
 @media (max-width: 768px) {
     .disco-detalhes {
         flex-direction: column;
@@ -556,7 +592,10 @@ footer p {
     }
 }
 
-/* Configurações da janela que aparece ao tentar adicionar um disco ao carrinho */
+/* POP-UP DO CARRINHO */
+
+/* Essa janela aparece quando alguma ação do carrinho
+   precisa mostrar uma mensagem pro usuário. */
 .modal {
     display: none;
     position: fixed;
@@ -568,12 +607,12 @@ footer p {
     padding: 20px;
 }
 
-/* Exibo o modal quando a classe é adicionada pelo JavaScript */
+/* O JavaScript adiciona essa classe quando precisa abrir a janela. */
 .modal.modal-ativo {
     display: flex;
 }
 
-/* Organizo o conteúdo que aparece dentro da janela */
+/* Essa é a caixa que aparece no meio da tela. */
 .modal-conteudo {
     position: relative;
     background: var(--surface);
@@ -586,25 +625,22 @@ footer p {
     color: var(--text);
 }
 
-/* Ajusto o tamanho e a cor do ícone da janela */
 .modal-icone {
     font-size: 45px;
     color: var(--accent);
 }
 
-/* Ajusto o título da janela */
 .modal-conteudo h2 {
     font-family: "Cinzel", serif;
     margin: 20px 0 12px;
 }
 
-/* Defino a aparência dos textos da janela */
 .modal-conteudo p {
     color: var(--text-secondary);
     line-height: 1.6;
 }
 
-/* Posiciono o botão utilizado para fechar a janela */
+/* Posiciono o botão de fechar no canto superior direito. */
 .fechar-modal {
     position: absolute;
     top: 15px;
@@ -616,7 +652,7 @@ footer p {
     cursor: pointer;
 }
 
-/* Defino a aparência do link para entrar na conta */
+/* Esse link pode levar o visitante para a área de conta. */
 .modal-botao {
     display: block;
     margin-top: 25px;
@@ -629,18 +665,15 @@ footer p {
     transition: 0.3s;
 }
 
-/* Destaco o link quando o mouse passa por cima */
 .modal-botao:hover {
     background: var(--accent);
 }
 
-/* Ajusto o espaço e o tamanho do texto de cadastro */
 .modal-cadastro {
     margin-top: 20px;
     font-size: 14px;
 }
 
-/* Destaco o link para realizar o cadastro */
 .modal-cadastro a {
     color: var(--accent);
     text-decoration: none;
@@ -650,7 +683,8 @@ footer p {
    PÁGINA DE CONTA
 ======================================== */
 
-/* Organizo a área principal dos formulários */
+/* Essa parte foi pensada pra deixar o login e o cadastro
+   com uma aparência diferente do restante da loja. */
 .conta-container {
     display: flex;
     justify-content: center;
@@ -661,7 +695,9 @@ footer p {
     background: radial-gradient(circle at center, rgba(163, 30, 65, 0.12), transparent 65%);
 }
 
-/* Dou ao formulário uma aparência mais pesada e underground */
+/* Tentei seguir uma estética mais underground,
+   usando cores escuras, bordas discretas e uma sombra
+   que lembra um pouco cartazes antigos. */
 .conta-formulario {
     width: 100%;
     max-width: 460px;
@@ -678,7 +714,7 @@ footer p {
         8px 8px 0 rgba(80, 15, 35, 0.25);
 }
 
-/* Ícone principal do formulário */
+/* O ícone fica maior pra funcionar como destaque do formulário. */
 .conta-icone {
     font-size: 55px;
     color: var(--accent);
@@ -686,7 +722,6 @@ footer p {
     filter: drop-shadow(0 0 10px rgba(192, 45, 85, 0.3));
 }
 
-/* Título com mais destaque */
 .conta-formulario h2 {
     font-family: "Cinzel", serif;
     font-size: 30px;
@@ -698,14 +733,15 @@ footer p {
     text-transform: uppercase;
 }
 
-/* Texto de apresentação */
+/* Esse texto apresenta a área de conta antes dos campos. */
 .conta-formulario > p {
     color: var(--text-secondary);
     margin-bottom: 30px;
     font-size: 14px;
 }
 
-/* Organização dos campos */
+/* Os campos ficam um embaixo do outro pra facilitar
+   o preenchimento das informações. */
 .campo-formulario {
     display: flex;
     flex-direction: column;
@@ -714,7 +750,6 @@ footer p {
     margin-bottom: 22px;
 }
 
-/* Aparência dos nomes dos campos */
 .campo-formulario label {
     color: var(--text-secondary);
     font-family: "Cinzel", serif;
@@ -723,7 +758,7 @@ footer p {
     text-transform: uppercase;
 }
 
-/* Campos de preenchimento */
+/* Aqui ficam os campos onde o usuário vai digitar. */
 .campo-formulario input {
     padding: 15px;
 
@@ -739,13 +774,13 @@ footer p {
     transition: 0.3s;
 }
 
-/* Efeito ao selecionar um campo */
+/* Quando algum campo está selecionado, a borda ganha destaque. */
 .campo-formulario input:focus {
     border-color: var(--accent);
     box-shadow: 0 0 12px rgba(192, 45, 85, 0.2);
 }
 
-/* Botão principal */
+/* Esse é o botão principal do formulário. */
 .conta-botao {
     width: 100%;
     padding: 16px;
@@ -765,7 +800,6 @@ footer p {
     transition: 0.3s;
 }
 
-/* Efeito do botão ao passar o mouse */
 .conta-botao:hover {
     background: var(--accent);
     border-color: var(--accent);
@@ -774,14 +808,13 @@ footer p {
     transform: translateY(-3px);
 }
 
-/* Texto para alternar entre login e cadastro */
+/* Link que permite alternar entre login e cadastro. */
 .conta-alternativa {
     margin-top: 28px;
     font-size: 13px;
     color: var(--text-secondary);
 }
 
-/* Links de login e cadastro */
 .conta-alternativa a {
     color: var(--accent);
     text-decoration: none;
@@ -794,7 +827,8 @@ footer p {
     text-decoration: underline;
 }
 
-/* Adaptação para telas menores */
+/* No celular, diminuo o espaço interno do formulário
+   pra ele não ocupar tanto espaço. */
 @media (max-width: 500px) {
     .conta-formulario {
         padding: 30px 22px;
@@ -805,7 +839,8 @@ footer p {
     }
 }
 
-/* Fundo com uma aparência inspirada em cartazes antigos de shows */
+/* Dei mais alguns detalhes ao fundo pra lembrar
+   aqueles cartazes antigos de shows e eventos musicais. */
 .conta-container {
     position: relative;
     isolation: isolate;
@@ -823,7 +858,7 @@ footer p {
         var(--bg);
 }
 
-/* Adiciono alguns detalhes desgastados ao fundo */
+/* Esse pseudo-elemento adiciona uma textura bem discreta ao fundo. */
 .conta-container::before {
     content: "";
     position: absolute;
@@ -841,7 +876,8 @@ footer p {
     opacity: 0.35;
 }
 
-/* Pequeno detalhe vermelho na parte superior do formulário */
+/* Aqui adiciono aquele detalhe vermelho na parte superior
+   do formulário, só pra dar um acabamento melhor. */
 .conta-formulario {
     position: relative;
     overflow: hidden;
@@ -859,13 +895,17 @@ footer p {
     background: linear-gradient(90deg, transparent, var(--accent), #ff456e, var(--accent), transparent);
 }
 
-/* Organizo a área principal do carrinho */
+/* ========================================
+   PÁGINA DO CARRINHO
+======================================== */
+
+/* Aqui começa a organização do carrinho.
+   Separei a lista de produtos do resumo do pedido. */
 .carrinho-container {
     min-height: 75vh;
     padding: 60px 8%;
 }
 
-/* Título principal */
 .carrinho-container h2 {
     font-family: "Cinzel", serif;
     font-size: 32px;
@@ -874,14 +914,13 @@ footer p {
     letter-spacing: 2px;
 }
 
-/* Texto abaixo do título */
 .carrinho-subtitulo {
     color: var(--text-secondary);
     margin-top: 8px;
     margin-bottom: 40px;
 }
 
-/* Organizo os produtos e o resumo lado a lado */
+/* Uso grid pra deixar os produtos e o resumo lado a lado. */
 .carrinho-conteudo {
     display: grid;
     grid-template-columns: 1fr 350px;
@@ -889,12 +928,11 @@ footer p {
     align-items: start;
 }
 
-/* Área dos produtos */
 .carrinho-produtos {
     min-width: 0;
 }
 
-/* Mensagem de carrinho vazio */
+/* Essa mensagem aparece quando o carrinho ainda está vazio. */
 #carrinho-vazio {
     text-align: center;
     padding: 60px 20px;
@@ -920,7 +958,7 @@ footer p {
     margin-bottom: 25px;
 }
 
-/* Botão para voltar à loja */
+/* Link pra pessoa voltar à loja e continuar olhando os discos. */
 .carrinho-voltar {
     display: inline-block;
     padding: 12px 22px;
@@ -939,7 +977,7 @@ footer p {
     transform: translateY(-3px);
 }
 
-/* Caixa com o resumo do pedido */
+/* O resumo fica separado da lista e destaca os valores da compra. */
 .carrinho-resumo {
     padding: 28px;
 
@@ -957,7 +995,8 @@ footer p {
     margin-bottom: 25px;
 }
 
-/* Organizo as informações dos valores */
+/* Deixo cada informação do resumo em uma linha,
+   com o nome de um lado e o valor do outro. */
 .resumo-linha {
     display: flex;
     justify-content: space-between;
@@ -970,7 +1009,8 @@ footer p {
     margin-bottom: 20px;
 }
 
-/* Destaco o valor total */
+/* O total recebe um destaque pra não se misturar
+   com as outras informações. */
 .resumo-total {
     padding-top: 20px;
     border-top: 1px solid #47202e;
@@ -980,7 +1020,7 @@ footer p {
     font-weight: bold;
 }
 
-/* Botão de finalizar compra */
+/* Botão usado pra finalizar a compra. */
 #finalizar-compra {
     width: 100%;
     padding: 15px;
@@ -1003,7 +1043,7 @@ footer p {
     transform: translateY(-3px);
 }
 
-/* Adapto o carrinho para telas menores */
+/* Em telas menores, as duas áreas passam a ficar uma embaixo da outra. */
 @media (max-width: 850px) {
     .carrinho-conteudo {
         grid-template-columns: 1fr;
@@ -1014,7 +1054,13 @@ footer p {
     }
 }
 
-/* Vinyl AI - coluna editorial */
+/* ========================================
+   VINYL AI
+======================================== */
+
+/* Essa seção é a Vinyl AI.
+   A ideia é apresentar curiosidades sobre música
+   usando informações que deixei preparadas no JavaScript. */
 .vinyl-ai {
     margin: 55px 0;
     padding: 30px 0;
@@ -1022,7 +1068,7 @@ footer p {
     border-bottom: 1px solid var(--border);
 }
 
-/* Cabeçalho */
+/* Organizo o título e a apresentação da seção. */
 .vinyl-ai-cabecalho {
     margin-bottom: 25px;
 }
@@ -1052,7 +1098,8 @@ footer p {
     line-height: 1.6;
 }
 
-/* Área da curiosidade */
+/* Aqui fica a área onde a curiosidade aparece depois
+   que o visitante aperta o botão. */
 .vinyl-ai-conteudo {
     display: block;
     padding: 22px 0;
@@ -1097,7 +1144,8 @@ footer p {
     letter-spacing: 1.5px;
 }
 
-/* Botão editorial */
+/* O botão tem um estilo mais simples pra combinar
+   com a aparência editorial dessa seção. */
 .ai-botao {
     display: inline-flex;
     align-items: center;
@@ -1122,6 +1170,8 @@ footer p {
     transform: translateX(4px);
 }
 
+/* Quando o botão está desabilitado, ele mostra que
+   alguma ação ainda está acontecendo. */
 .ai-botao:disabled {
     opacity: 0.6;
     cursor: wait;
@@ -1133,6 +1183,7 @@ footer p {
     animation: girar-icone 1s linear infinite;
 }
 
+/* Essa animação faz o ícone dar uma volta completa. */
 @keyframes girar-icone {
     from {
         transform: rotate(0deg);
@@ -1143,7 +1194,7 @@ footer p {
     }
 }
 
-/* Celulares */
+/* Também diminuo os espaçamentos e títulos no celular. */
 @media (max-width: 600px) {
     .vinyl-ai {
         margin: 35px 0;
@@ -1163,6 +1214,8 @@ footer p {
    PÁGINA DE NOVIDADES
 ======================================== */
 
+/* Essa página foi pensada pra apresentar conteúdos
+   sobre o mundo da música, não apenas discos à venda. */
 .novidades-container {
     width: 90%;
     max-width: 1200px;
@@ -1170,7 +1223,8 @@ footer p {
     padding: 45px 0;
 }
 
-/* Banner principal */
+/* O banner usa uma imagem de fundo com uma camada escura
+   por cima pra deixar o texto mais fácil de ler. */
 .novidades-banner {
     min-height: 320px;
     padding: 55px 45px;
@@ -1206,6 +1260,8 @@ footer p {
     line-height: 1.7;
 }
 
+/* Esse link funciona como uma chamada pra pessoa
+   continuar explorando o conteúdo. */
 .novidades-botao {
     display: inline-flex;
     align-items: center;
@@ -1230,6 +1286,8 @@ footer p {
    MATÉRIA EM DESTAQUE
 ======================================== */
 
+/* A matéria principal fica dividida em duas partes:
+   imagem de um lado e texto do outro. */
 .materia-destaque {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1250,6 +1308,7 @@ footer p {
     transition: 0.4s;
 }
 
+/* A imagem aumenta um pouquinho quando recebe o mouse. */
 .materia-imagem img:hover {
     transform: scale(1.04);
 }
@@ -1300,6 +1359,8 @@ footer p {
    CATEGORIAS
 ======================================== */
 
+/* Separei as categorias em cartões individuais
+   pra facilitar a navegação pelos assuntos. */
 .novidades-categorias {
     margin: 85px 0;
 }
@@ -1312,6 +1373,7 @@ footer p {
     letter-spacing: 1.5px;
 }
 
+/* Uso grid pra distribuir as categorias em quatro colunas. */
 .categorias-grade {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1352,10 +1414,13 @@ footer p {
    LISTA DE CURIOSIDADES
 ======================================== */
 
+/* As curiosidades aparecem em cartões com imagem,
+   título e uma pequena descrição. */
 .curiosidades {
     margin: 85px 0 50px;
 }
 
+/* Deixo três cartões por linha em telas maiores. */
 .curiosidades-grade {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1432,6 +1497,8 @@ footer p {
    RESPONSIVIDADE
 ======================================== */
 
+/* Quando a tela diminui, reduzo a quantidade
+   de cartões por linha pra evitar que fiquem apertados. */
 @media (max-width: 850px) {
     .materia-destaque {
         gap: 25px;
@@ -1446,6 +1513,8 @@ footer p {
     }
 }
 
+/* No celular, deixo a matéria principal na vertical
+   e as curiosidades em uma única coluna. */
 @media (max-width: 600px) {
     .novidades-container {
         width: 92%;
@@ -1493,7 +1562,8 @@ footer p {
    PÁGINA DE PRÉ-VENDAS
 ======================================== */
 
-/* Banner principal */
+/* O banner segue o mesmo padrão visual das novidades,
+   mas usa uma imagem relacionada aos discos em pré-venda. */
 .pv-banner {
     min-height: 330px;
     padding: 55px 45px;
@@ -1534,7 +1604,8 @@ footer p {
     line-height: 1.8;
 }
 
-/* Introdução */
+/* Essa parte apresenta a proposta da página
+   antes de mostrar os produtos. */
 .pv-introducao {
     width: 90%;
     max-width: 1200px;
@@ -1562,14 +1633,15 @@ footer p {
     line-height: 1.8;
 }
 
-/* Área dos produtos */
+/* Aqui fica a área onde os discos em pré-venda são apresentados. */
 .pv-produtos {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto 65px;
 }
 
-/* Aviso de pré-venda */
+/* Esse aviso explica algumas informações importantes
+   sobre o funcionamento das pré-vendas. */
 .pv-aviso {
     width: 90%;
     max-width: 1200px;
@@ -1601,7 +1673,7 @@ footer p {
     line-height: 1.7;
 }
 
-/* Rodapé */
+/* Ajustes pra página não ficar apertada em telas pequenas. */
 @media (max-width: 600px) {
     .pv-banner {
         width: 92%;
@@ -1633,7 +1705,8 @@ footer p {
    DE VOLTA AO ESTOQUE
 ======================================== */
 
-/* Banner */
+/* Essa página reaproveita a estrutura de pré-vendas,
+   mas tem sua própria imagem e seus próprios textos. */
 .dve-banner {
     width: 90%;
     max-width: 1200px;
@@ -1674,7 +1747,7 @@ footer p {
     line-height: 1.8;
 }
 
-/* Introdução */
+/* Apresentação da página antes da lista de produtos. */
 .dve-introducao {
     width: 90%;
     max-width: 1200px;
@@ -1702,14 +1775,14 @@ footer p {
     line-height: 1.8;
 }
 
-/* Área dos produtos */
+/* Área onde ficam os discos que voltaram ao estoque. */
 .dve-produtos {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto 80px;
 }
 
-/* Responsividade */
+/* Adapto o banner e a introdução para o celular. */
 @media (max-width: 600px) {
     .dve-banner {
         width: 92%;
@@ -1736,7 +1809,7 @@ footer p {
    PÁGINA DE ARTISTAS
 ======================================== */
 
-/* Apresentação */
+/* A apresentação da página fica separada da lista de artistas. */
 .artistas-banner {
     width: 90%;
     max-width: 1200px;
@@ -1766,7 +1839,7 @@ footer p {
     line-height: 1.8;
 }
 
-/* Container principal */
+/* Aqui fica a área que reúne os artistas disponíveis na loja. */
 .artistas-container {
     width: 90%;
     max-width: 1200px;
@@ -1800,7 +1873,9 @@ footer p {
     font-size: 12px;
 }
 
-/* Lista de artistas */
+/* Cada artista aparece como um item clicável.
+   O JavaScript fica responsável por mostrar a discografia
+   correspondente quando a pessoa seleciona um nome. */
 .artistas-lista {
     border-top: 1px solid var(--border);
 }
@@ -1836,7 +1911,8 @@ footer p {
     font-size: 17px;
 }
 
-/* Discografia do artista */
+/* Quando um artista é selecionado, essa área apresenta
+   os discos relacionados a ele. */
 .artista-discos {
     width: 90%;
     max-width: 1200px;
@@ -1849,6 +1925,7 @@ footer p {
     border-bottom: 2px solid var(--text);
 }
 
+/* Botão pra voltar à lista de artistas. */
 .artista-discos-cabecalho button {
     display: block;
     margin-bottom: 35px;
@@ -1884,7 +1961,7 @@ footer p {
     font-size: 35px;
 }
 
-/* Lista de discos */
+/* Organizo os discos em três colunas. */
 .artista-discos-lista {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1910,6 +1987,7 @@ footer p {
     object-fit: cover;
 }
 
+/* Deixo as informações do disco separadas da imagem. */
 .artista-disco-info {
     padding: 17px;
 }
@@ -1940,14 +2018,15 @@ footer p {
     text-decoration: underline;
 }
 
-/* Mensagens */
+/* Essa mensagem pode aparecer quando não existem discos
+   para o artista selecionado. */
 .artistas-vazio {
     padding: 30px 0;
     color: var(--text-secondary);
     font-size: 14px;
 }
 
-/* Responsividade */
+/* Em telas menores, diminuo as colunas da discografia. */
 @media (max-width: 750px) {
     .artista-discos-lista {
         grid-template-columns: repeat(2, 1fr);
@@ -1959,6 +2038,7 @@ footer p {
     }
 }
 
+/* No celular, deixo apenas uma coluna de discos. */
 @media (max-width: 500px) {
     .artistas-banner {
         margin-top: 25px;
@@ -1987,7 +2067,8 @@ footer p {
    PÁGINA DE CONTATO
 ======================================== */
 
-/* Banner principal */
+/* A apresentação da página de contato fica no topo,
+   seguindo o mesmo estilo das outras páginas. */
 .contato-banner {
     width: 90%;
     max-width: 1200px;
@@ -2017,7 +2098,8 @@ footer p {
     line-height: 1.8;
 }
 
-/* Área de contato */
+/* Separei as informações do formulário em duas colunas.
+   Assim cada parte tem seu próprio espaço. */
 .contato-container {
     width: 90%;
     max-width: 1200px;
@@ -2027,7 +2109,7 @@ footer p {
     gap: 70px;
 }
 
-/* Informações */
+/* Informações de contato. */
 .contato-informacoes > span {
     color: var(--accent);
     font-size: 10px;
@@ -2049,6 +2131,7 @@ footer p {
     line-height: 1.8;
 }
 
+/* Cada informação fica alinhada com seu respectivo ícone. */
 .contato-detalhe {
     display: flex;
     align-items: center;
@@ -2072,7 +2155,8 @@ footer p {
     font-size: 13px;
 }
 
-/* Formulário */
+/* O formulário fica dentro de uma caixa separada
+   pra destacar a área de preenchimento. */
 .contato-formulario {
     padding: 30px;
     background: var(--surface);
@@ -2093,6 +2177,8 @@ footer p {
     font-size: 12px;
 }
 
+/* Os campos ocupam toda a largura disponível
+   pra facilitar o preenchimento. */
 .contato-formulario input,
 .contato-formulario textarea {
     width: 100%;
@@ -2119,6 +2205,7 @@ footer p {
     opacity: 0.7;
 }
 
+/* Botão que envia o formulário. */
 .contato-formulario button {
     display: flex;
     align-items: center;
@@ -2140,7 +2227,8 @@ footer p {
     transform: translateY(-2px);
 }
 
-/* Responsividade */
+/* No celular, as informações e o formulário
+   passam a ficar um embaixo do outro. */
 @media (max-width: 750px) {
     .contato-container {
         grid-template-columns: 1fr;
@@ -2167,7 +2255,7 @@ footer p {
     }
 }
 
-/* Link do GitHub */
+/* Esse link leva ao GitHub e ganha destaque quando recebe o mouse. */
 .contato-detalhe a {
     color: var(--text-secondary);
     font-size: 13px;
@@ -2180,7 +2268,10 @@ footer p {
     text-decoration: underline;
 }
 
-/* Aviso criado dinamicamente pelo JavaScript */
+/* AVISOS E PESQUISA */
+
+/* Esse aviso é criado pelo JavaScript quando alguma ação
+   precisa de uma mensagem visível na página. */
 .alerta-vinyl {
     display: flex;
     align-items: center;
@@ -2199,6 +2290,7 @@ footer p {
     font-family: "Lora", serif;
 }
 
+/* Botão usado pra fechar o aviso. */
 .fechar-alerta-vinyl {
     background: transparent;
     border: none;
@@ -2211,7 +2303,8 @@ footer p {
     color: var(--accent);
 }
 
-/* Área responsável pela pesquisa dos discos */
+/* Aqui fica o campo de pesquisa dos discos.
+   Posicionei o ícone dentro do próprio campo pra economizar espaço. */
 .filtro-container {
     position: relative;
     max-width: 500px;
@@ -2242,6 +2335,7 @@ footer p {
     color: var(--text-secondary);
 }
 
+/* Essa mensagem aparece quando a pesquisa não encontra nenhum disco. */
 #nenhum-resultado {
     text-align: center;
     color: var(--text-secondary);
@@ -2249,7 +2343,12 @@ footer p {
     font-family: "Lora", serif;
 }
 
-/* Seção da lista de desejos */
+/* ========================================
+   LISTA DE DESEJOS
+======================================== */
+
+/* Essa seção permite guardar nomes de discos
+   que o visitante gostaria de encontrar futuramente. */
 .lista-desejos {
     margin: 60px 40px;
     padding: 30px;
@@ -2267,7 +2366,7 @@ footer p {
     color: var(--text-secondary);
 }
 
-/* Formulário para adicionar desejos */
+/* O formulário fica em uma linha quando existe espaço suficiente. */
 #form-desejos {
     display: flex;
     gap: 10px;
@@ -2286,6 +2385,8 @@ footer p {
     font-family: "Lora", serif;
 }
 
+/* Os botões de adicionar e interagir com os desejos
+   seguem o mesmo padrão visual. */
 #form-desejos button,
 #itens-desejos button {
     padding: 10px 15px;
@@ -2302,7 +2403,7 @@ footer p {
     background: var(--accent);
 }
 
-/* Itens adicionados à lista */
+/* Aqui ficam os itens que foram adicionados à lista. */
 #itens-desejos {
     max-width: 700px;
     margin: 25px auto;
@@ -2327,12 +2428,15 @@ footer p {
     color: var(--text);
 }
 
+/* Quando um desejo é marcado como concluído,
+   o texto ganha um risco no meio. */
 #itens-desejos .desejo-concluido {
     text-decoration: line-through;
     opacity: 0.6;
 }
 
-/* Ajustes para telas menores */
+/* No celular, o formulário passa a ficar na vertical
+   e os itens podem quebrar de linha. */
 @media (max-width: 600px) {
     .lista-desejos {
         margin: 40px 15px;
@@ -2352,6 +2456,8 @@ footer p {
    POP-UP DA CONTA
 ======================================== */
 
+/* Esse é o menu que aparece quando o usuário clica
+   no ícone de conta do cabeçalho. */
 .account-menu {
     position: relative;
 }
@@ -2369,7 +2475,8 @@ footer p {
     color: var(--accent);
 }
 
-/* Janela do pop-up */
+/* O painel começa invisível e aparece com uma animação
+   quando recebe a classe account-panel-aberto. */
 .account-panel {
     display: block;
     position: absolute;
@@ -2389,14 +2496,16 @@ footer p {
     transition: 0.25s ease;
 }
 
-/* Mostra o pop-up */
+/* O JavaScript adiciona essa classe quando o painel é aberto. */
 .account-panel.account-panel-aberto {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
 }
 
-/* Pequena seta no topo */
+/* Fiz essa pequena seta usando um pseudo-elemento.
+   É um detalhe simples, mas ajuda a dar a impressão
+   de que o painel está conectado ao ícone da conta. */
 .account-panel::before {
     content: "";
     position: absolute;
@@ -2410,7 +2519,7 @@ footer p {
     transform: rotate(45deg);
 }
 
-/* Título */
+/* Título que aparece dentro do painel. */
 .account-panel h3 {
     font-family: "Cinzel", serif;
     color: var(--text);
@@ -2418,7 +2527,7 @@ footer p {
     margin: 0 0 8px;
 }
 
-/* Textos */
+/* Textos menores que acompanham o formulário da conta. */
 .account-panel p {
     color: var(--text-secondary);
     font-family: "Lora", serif;
@@ -2426,7 +2535,7 @@ footer p {
     margin-bottom: 16px;
 }
 
-/* Campos */
+/* Campos usados para digitar as informações da conta. */
 .account-panel input {
     width: 100%;
     padding: 11px;
@@ -2443,7 +2552,7 @@ footer p {
     border-color: var(--accent);
 }
 
-/* Botões */
+/* Botões do painel de conta. */
 .account-panel button {
     width: 100%;
     padding: 11px;
@@ -2462,7 +2571,7 @@ footer p {
     transform: translateY(-2px);
 }
 
-/* Link de cadastro */
+/* Link que leva à página de cadastro. */
 .account-cadastro {
     text-align: center;
     margin-top: 16px;
@@ -2478,7 +2587,8 @@ footer p {
     text-decoration: underline;
 }
 
-/* Ajuste para telas menores */
+/* No celular, diminuo a largura do painel
+   pra ele não ultrapassar os limites da tela. */
 @media (max-width: 480px) {
     .account-panel {
         width: 260px;
