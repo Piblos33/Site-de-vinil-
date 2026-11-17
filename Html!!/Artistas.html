@@ -1,16 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Loja de Vinil</title>
+
+        <title>Artistas | Vinyl</title>
+
         <link rel="stylesheet" href="/Css!!/style.css" />
+
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
         />
     </head>
+
     <body>
+        <!-- Cabeçalho -->
         <header>
             <h1>Loja de Vinil</h1>
 
@@ -24,24 +29,114 @@
             </nav>
 
             <div class="header-icons">
-                <a href="conta.html">
-                    <i class="bi bi-person-circle"></i>
-                </a>
+                <!-- Menu da conta -->
+                <div class="account-menu">
+                    <button id="account-toggle" aria-label="Abrir menu da conta">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
 
+                    <div class="account-panel" id="account-panel">
+                        <!-- Aparece quando o usuário não está conectado -->
+                        <div id="mini-login">
+                            <h3>Entre na sua conta</h3>
+
+                            <p>Continue explorando a Vinyl.</p>
+
+                            <form id="mini-login-form">
+                                <input type="email" id="mini-email" placeholder="Seu e-mail" required />
+
+                                <input type="password" id="mini-senha" placeholder="Sua senha" required />
+
+                                <button type="submit">ENTRAR</button>
+                            </form>
+
+                            <p class="account-cadastro">
+                                Ainda não tem conta?
+                                <a href="conta.html">Cadastre-se</a>
+                            </p>
+                        </div>
+
+                        <!-- Aparece quando o usuário já está conectado -->
+                        <div id="mini-logado" style="display: none">
+                            <h3>Bem-vindo à Vinyl!</h3>
+
+                            <p>Sua sessão está ativa.</p>
+
+                            <button id="mini-sair">SAIR DA CONTA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrinho -->
                 <a href="carrinho.html">
                     <i class="bi bi-cart3"></i>
                 </a>
+
+                <!-- Alternar tema -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                    <i class="bi bi-moon-stars-fill"></i>
+                </button>
             </div>
         </header>
 
         <main>
-            <h2 id="inicio">Bem vindo!</h2>
-            <p>a</p>
+            <!-- Apresentação -->
+            <section class="artistas-banner">
+                <span>VINYL RECORD STORE • NOSSO ACERVO</span>
+
+                <h2>ARTISTAS.</h2>
+
+                <p>
+                    Das bandas que marcaram gerações aos sons que merecem ser descobertos. Encontre seus artistas
+                    favoritos.
+                </p>
+            </section>
+
+            <!-- Lista de artistas -->
+            <section class="artistas-container">
+                <div class="artistas-cabecalho">
+                    <div>
+                        <span>EXPLORE NOSSO CATÁLOGO</span>
+                        <h2>Todos os artistas</h2>
+                    </div>
+
+                    <p id="quantidade-artistas">Carregando artistas...</p>
+                </div>
+
+                <div class="artistas-lista" id="artistas-lista">
+                    <!-- Os artistas serão adicionados pelo JavaScript -->
+                </div>
+            </section>
+
+            <!-- Discos do artista selecionado -->
+            <section class="artista-discos" id="artista-discos" style="display: none">
+                <div class="artista-discos-cabecalho">
+                    <button id="voltar-artistas">
+                        <i class="bi bi-arrow-left"></i>
+                        VOLTAR AOS ARTISTAS
+                    </button>
+
+                    <span>DISCOGRAFIA DISPONÍVEL NA VINYL</span>
+
+                    <h2 id="nome-artista"></h2>
+                </div>
+
+                <div class="artista-discos-lista" id="lista-discos-artista">
+                    <!-- Os discos serão adicionados pelo JavaScript -->
+                </div>
+            </section>
         </main>
 
+        <!-- Rodapé -->
         <footer>
-            <p>meu site</p>
-            <p>Desenvolvido por mim!!</p>
+            <p>Meu Site</p>
+            <span>Desenvolvido por mim!!!</span>
         </footer>
+
+        <!-- Arquivos JavaScript -->
+        <script src="../Java!!/Catalogo.js"></script>
+        <script src="../Java!!/Tema.js"></script>
+        <script src="../Java!!/Artistas.js"></script>
+        <script src="../Java!!/ContaMenu.js"></script>
     </body>
 </html>

@@ -3,6 +3,40 @@
 @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap");
 /* ate antes de fazer esse codigo, eu não tinha ideia que dava pra fazer isso*/
 /*fonte para os titulos e textos*/
+/* TEMA ESCURO - PADRÃO */
+
+:root {
+    color-scheme: dark;
+
+    --bg: #100e12;
+    --surface: #1a151b;
+    --surface-secondary: #32131f;
+    --text: #d0c3b5;
+    --text-secondary: #a99a90;
+    --border: #542638;
+    --accent: #a34b69;
+}
+
+/* Aqui ficam as cores utilizadas quando o site está no tema claro */
+[data-theme="light"] {
+    color-scheme: light;
+
+    --bg: #f4eee7;
+    --surface: #ffffff;
+    --surface-secondary: #e9dce0;
+    --text: #32131f;
+    --text-secondary: #725d62;
+    --border: #c9aeb8;
+    --accent: #8b3d5a;
+}
+
+/* Faço o botão de tema mudar de aparência quando passo o mouse */
+.theme-toggle:hover {
+    color: var(--accent);
+    transform: rotate(15deg);
+}
+
+/* Defino as fontes utilizadas nos títulos e nos textos */
 h1,
 h2,
 h3 {
@@ -14,7 +48,7 @@ a {
     font-family: "Lora", serif;
 }
 
-/* Configurações gerais */
+/* Configurações gerais para organizar os elementos da página */
 * {
     margin: 0;
     padding: 0;
@@ -24,62 +58,84 @@ a {
 html,
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: var(--bg);
+    color: var(--text);
+
     margin: 0;
     padding: 0;
     min-height: 100%;
 }
 
+/* Organizo a página para que o rodapé fique na parte inferior */
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
+/* Faço o conteúdo principal ocupar o espaço disponível */
 main {
     flex: 1;
 }
 
 /* HEADER */
+/* Organizo o cabeçalho e mantenho ele visível durante a rolagem */
 header {
-    background-color: #100e12;
-    color: #d0c3b5;
+    background-color: var(--surface);
+    color: var(--text);
+    border-bottom: 1px solid var(--border);
 
     display: flex;
     align-items: center;
     justify-content: space-between;
 
     padding: 20px 40px;
-    position: relative;
-
-    border-bottom: 1px solid #542638;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
+/* Ajusto o título que aparece no cabeçalho */
 header h1 {
     font-family: "Cinzel", serif;
     font-size: 28px;
     margin: 0;
 }
 
+/* Organizo os links do menu e o espaço entre eles */
 header nav {
     display: flex;
     gap: 25px;
 }
 
+/* Defino a aparência dos links do cabeçalho */
 header nav a {
-    color: white;
+    color: var(--text);
     text-decoration: none;
+    transition: color 0.3;
 }
-/* botoes do header */
 
+/* Mudo a cor dos links quando passo o mouse */
+header nav a:hover {
+    color: var(--accent);
+}
+
+/* Defino a aparência dos ícones do cabeçalho */
+.header-icons i {
+    color: var(--text);
+    transition: color 0.3s;
+}
+
+/* Ajusto a aparência dos botões do menu */
 .menu {
     text-align: center;
-    color: rgb(255, 254, 254);
+    color: var(--text);
     font-family: "Cinzel", sans-serif;
     font-size: 18px;
 }
 
 /* NAV */
+/* Organizo os links de navegação e posiciono o menu no centro */
 nav {
     display: flex;
     gap: 25px;
@@ -89,35 +145,44 @@ nav {
     transform: translateX(-50%);
 }
 
+/* Defino as cores e a fonte dos links de navegação */
 nav a {
-    color: #d0c3b5;
+    color: var(--text);
     text-decoration: none;
     font-family: "Lora", serif;
 }
 
+/* Destaco os links quando o mouse passa por cima */
+nav a:hover {
+    color: var(--accent);
+}
+
 /* MAIN */
+/* Defino o espaço interno da área principal */
 main {
     padding: 40px;
     min-height: 70vh;
 }
 
 /* FOOTER */
+/* Organizo o rodapé e defino sua aparência */
 footer {
-    background-color: #d0c3b5;
-    color: rgb(253, 252, 252);
+    background-color: var(--surface-secondary);
+    color: var(--text);
 
     padding: 30px;
     text-align: center;
 
-    border-top: 3px solid #8b5cf6;
+    border-top: 3px solid var(--border);
 }
 
+/* Ajusto o espaçamento e o tamanho dos textos do rodapé */
 footer p {
     margin: 5px;
     font-size: 14px;
 }
 
-/*Icones De perfil e carrinho */
+/* Organizo os ícones de perfil e carrinho */
 .header-icons {
     display: flex;
     align-items: center;
@@ -125,49 +190,54 @@ footer p {
     margin-left: auto;
 }
 
+/* Defino o tamanho e a aparência dos ícones */
 .header-icons a {
-    color: #d0c3b5;
+    color: var(--text);
     font-size: 22px;
     transition: 0.3s;
 }
 
+/* Mudo a cor dos ícones quando passo o mouse */
 .header-icons a:hover {
-    color: #a34b69;
+    color: var(--accent);
 }
 
-/* carousel e etc
 /* CARROSSEL */
-
-/* CARROSSEL */
-
+/* Defino o espaço entre o carrossel e a próxima seção */
 .carousel-section {
     margin-bottom: 55px;
 }
 
+/* Ajusto os títulos das seções de carrossel e produtos */
 .carousel-section h2,
 .products-section h2 {
-    color: #000000;
+    color: var(--text);
     margin-bottom: 25px;
     font-size: 25px;
 }
 
+/* Organizo a área onde o carrossel aparece */
 .carousel-container {
     position: relative;
     display: flex;
     align-items: center;
-    padding: 20px 50px;
+    padding: 35px 60px;
 
-    background: linear-gradient(135deg, #1a151b, #32131f);
+    background: linear-gradient(135deg, var(--surface), var(--surface-secondary));
 
-    border: 1px solid #542638;
+    border-color: var(--border);
     border-radius: 25px;
 
     width: 100%;
-    max-width: 1400px;
+    max-width: 1500px;
+
+    min-height: 340px;
 
     margin: 0 auto;
     overflow: hidden;
 }
+
+/* Organizo os discos e permito a rolagem horizontal */
 .carousel {
     display: flex;
     align-items: center;
@@ -182,10 +252,12 @@ footer p {
     scrollbar-width: none;
 }
 
+/* Escondo a barra de rolagem do carrossel */
 .carousel::-webkit-scrollbar {
     display: none;
 }
 
+/* Defino o tamanho e a aparência inicial de cada disco */
 .carousel-item {
     flex: 0 0 240px;
 
@@ -203,16 +275,19 @@ footer p {
         opacity 0.45s ease;
 }
 
+/* Dou destaque ao disco que está selecionado no momento */
 .carousel-item.active {
     transform: scale(1);
     opacity: 1;
 }
 
+/* Destaco os outros discos quando passo o mouse por cima */
 .carousel-item:not(.active):hover {
     transform: scale(0.9);
     opacity: 0.85;
 }
 
+/* Defino o tamanho e o posicionamento das capas */
 .carousel-item img {
     width: 220px;
     height: 220px;
@@ -222,18 +297,19 @@ footer p {
     border: 1px solid #59404a;
 }
 
+/* Aumento um pouco o disco quando passo o mouse por cima */
 .carousel-item:hover {
     transform: scale(1.08);
 }
 
+/* Organizo os botões utilizados para avançar e voltar o carrossel */
 .carousel-btn {
     position: absolute;
     z-index: 2;
 
-    background: #32131f;
-    color: #d0c3b5;
-
-    border: 1px solid #59404a;
+    background: var(--surface-secondary);
+    color: var(--text);
+    border: 1px solid var(--border);
     border-radius: 50%;
 
     width: 35px;
@@ -243,48 +319,57 @@ footer p {
     transition: 0.3s;
 }
 
+/* Destaco os botões do carrossel quando são selecionados */
 .carousel-btn:hover {
-    background: #542638;
+    background: var(--accent);
 }
 
+/* Posiciono o botão para voltar os discos */
 .prev {
     left: 8px;
 }
 
+/* Posiciono o botão para avançar os discos */
 .next {
     right: 8px;
 }
 
 /* PRODUTOS */
-
+/* Defino o espaço antes da seção de produtos */
 .products-section {
     margin-top: 45px;
 }
 
+/* Organizo os produtos em uma grade com cinco colunas */
 .products-container {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 20px;
+    gap: 15px;
+
+    width: 100%;
 }
 
+/* Defino a aparência dos cartões de cada produto */
 .product-card {
-    background-color: #100e12;
-    border: 1px solid #542638;
-    border-radius: 18px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 15px;
 
-    padding: 12px;
+    padding: 9px;
 
-    color: #d0c3b5;
+    color: var(--text);
     text-decoration: none;
 
     transition: 0.3s ease;
 }
 
+/* Destaco o cartão quando o mouse passa por cima */
 .product-card:hover {
     transform: translateY(-6px);
-    border-color: #a34b69;
+    border-color: var(--accent);
 }
 
+/* Ajusto as capas para que todas tenham o mesmo formato */
 .product-card img {
     width: 100%;
     aspect-ratio: 1 / 1;
@@ -293,28 +378,31 @@ footer p {
     border-radius: 12px;
 }
 
+/* Ajusto o nome de cada produto */
 .product-card h3 {
     font-size: 15px;
     margin-top: 12px;
 }
 
+/* Defino a aparência das informações dos produtos */
 .product-card p {
     font-size: 13px;
-    color: #a99a90;
+    color: var(--text-secondary);
     margin-top: 5px;
 }
 
+/* Destaco o preço de cada produto */
 .product-card span {
     display: block;
     margin-top: 12px;
 
     font-family: "Lora", serif;
     font-weight: bold;
-    color: #d0c3b5;
+    color: var(--text);
 }
 
 /* RESPONSIVIDADE */
-
+/* Adapto o carrossel para telas menores */
 @media (max-width: 600px) {
     .carousel-container {
         padding: 15px 35px;
@@ -327,5 +415,2073 @@ footer p {
     .carousel-item img {
         width: 145px;
         height: 145px;
+    }
+}
+
+/* Configurações do botão responsável por trocar o tema */
+.theme-toggle {
+    background: transparent;
+    border: none;
+
+    color: var(--text);
+    font-size: 22px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Animação do botão quando passo o mouse por cima */
+.theme-toggle:hover {
+    color: var(--accent);
+    transform: rotate(15deg);
+}
+
+/* BOTÃO ADICIONAR AO CARRINHO */
+/* Organizo o botão e defino sua aparência */
+#adicionar-carrinho {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    background: var(--surface-secondary);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    padding: 15px 25px;
+
+    font-family: "Lora", serif;
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+/* Mudo a aparência do botão quando passo o mouse por cima */
+#adicionar-carrinho:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 6px 18px rgba(163, 75, 105, 0.25);
+}
+
+/* Dou um pequeno efeito quando o botão é pressionado */
+#adicionar-carrinho:active {
+    transform: scale(0.97);
+}
+
+/* Ajusto o tamanho do ícone dentro do botão */
+#adicionar-carrinho i {
+    font-size: 20px;
+}
+
+/* Organizo a área que apresenta os detalhes de cada disco */
+.disco-detalhes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 60px;
+    max-width: 1100px;
+    margin: 80px auto;
+    padding: 30px;
+}
+
+/* Reservo o espaço onde a capa do disco será exibida */
+.disco-imagem {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Ajusto o tamanho e a aparência da imagem do disco */
+.disco-imagem img {
+    width: 100%;
+    max-width: 420px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Organizo as informações que aparecem ao lado da capa */
+.disco-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Ajusto o título com o nome do disco */
+.disco-info h2 {
+    color: var(--text);
+    font-family: "Cinzel", serif;
+    font-size: 30px;
+}
+
+/* Defino a aparência dos textos com as informações do disco */
+.disco-info p {
+    color: var(--text-secondary);
+    font-family: "Lora", serif;
+    line-height: 1.7;
+}
+
+/* Destaco o preço para chamar mais atenção */
+#disco-preco {
+    color: var(--accent);
+    font-size: 25px;
+    font-weight: bold;
+}
+
+/* Adapto a página de detalhes para telas menores */
+@media (max-width: 768px) {
+    .disco-detalhes {
+        flex-direction: column;
+        gap: 30px;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    .disco-imagem img {
+        max-width: 320px;
+    }
+
+    .disco-info h2 {
+        font-size: 24px;
+    }
+}
+
+/* Configurações da janela que aparece ao tentar adicionar um disco ao carrinho */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+/* Exibo o modal quando a classe é adicionada pelo JavaScript */
+.modal.modal-ativo {
+    display: flex;
+}
+
+/* Organizo o conteúdo que aparece dentro da janela */
+.modal-conteudo {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 40px;
+    max-width: 430px;
+    width: 100%;
+    text-align: center;
+    color: var(--text);
+}
+
+/* Ajusto o tamanho e a cor do ícone da janela */
+.modal-icone {
+    font-size: 45px;
+    color: var(--accent);
+}
+
+/* Ajusto o título da janela */
+.modal-conteudo h2 {
+    font-family: "Cinzel", serif;
+    margin: 20px 0 12px;
+}
+
+/* Defino a aparência dos textos da janela */
+.modal-conteudo p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Posiciono o botão utilizado para fechar a janela */
+.fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Defino a aparência do link para entrar na conta */
+.modal-botao {
+    display: block;
+    margin-top: 25px;
+    padding: 14px;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Destaco o link quando o mouse passa por cima */
+.modal-botao:hover {
+    background: var(--accent);
+}
+
+/* Ajusto o espaço e o tamanho do texto de cadastro */
+.modal-cadastro {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Destaco o link para realizar o cadastro */
+.modal-cadastro a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+/* ========================================
+   PÁGINA DE CONTA
+======================================== */
+
+/* Organizo a área principal dos formulários */
+.conta-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    padding: 50px 20px;
+
+    background: radial-gradient(circle at center, rgba(163, 30, 65, 0.12), transparent 65%);
+}
+
+/* Dou ao formulário uma aparência mais pesada e underground */
+.conta-formulario {
+    width: 100%;
+    max-width: 460px;
+    padding: 45px;
+
+    background: linear-gradient(145deg, var(--surface), var(--bg));
+    border: 1px solid var(--border);
+    border-radius: 5px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 25px rgba(120, 20, 50, 0.15),
+        8px 8px 0 rgba(80, 15, 35, 0.25);
+}
+
+/* Ícone principal do formulário */
+.conta-icone {
+    font-size: 55px;
+    color: var(--accent);
+
+    filter: drop-shadow(0 0 10px rgba(192, 45, 85, 0.3));
+}
+
+/* Título com mais destaque */
+.conta-formulario h2 {
+    font-family: "Cinzel", serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    margin: 20px 0 12px;
+    color: var(--text);
+    text-transform: uppercase;
+}
+
+/* Texto de apresentação */
+.conta-formulario > p {
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+/* Organização dos campos */
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 9px;
+    margin-bottom: 22px;
+}
+
+/* Aparência dos nomes dos campos */
+.campo-formulario label {
+    color: var(--text-secondary);
+    font-family: "Cinzel", serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Campos de preenchimento */
+.campo-formulario input {
+    padding: 15px;
+
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    color: var(--text);
+    font-family: "Lora", serif;
+    font-size: 14px;
+
+    outline: none;
+    transition: 0.3s;
+}
+
+/* Efeito ao selecionar um campo */
+.campo-formulario input:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(192, 45, 85, 0.2);
+}
+
+/* Botão principal */
+.conta-botao {
+    width: 100%;
+    padding: 16px;
+
+    background: var(--surface-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    color: var(--text);
+    font-family: "Cinzel", serif;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Efeito do botão ao passar o mouse */
+.conta-botao:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+
+    box-shadow: 0 0 18px rgba(192, 45, 85, 0.3);
+    transform: translateY(-3px);
+}
+
+/* Texto para alternar entre login e cadastro */
+.conta-alternativa {
+    margin-top: 28px;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Links de login e cadastro */
+.conta-alternativa a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.conta-alternativa a:hover {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* Adaptação para telas menores */
+@media (max-width: 500px) {
+    .conta-formulario {
+        padding: 30px 22px;
+    }
+
+    .conta-formulario h2 {
+        font-size: 23px;
+    }
+}
+
+/* Fundo com uma aparência inspirada em cartazes antigos de shows */
+.conta-container {
+    position: relative;
+    isolation: isolate;
+
+    background:
+        radial-gradient(circle at 20% 30%, rgba(150, 20, 50, 0.18), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(100, 15, 35, 0.2), transparent 40%),
+        repeating-linear-gradient(
+            135deg,
+            rgba(128, 128, 128, 0.025) 0px,
+            rgba(128, 128, 128, 0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        ),
+        var(--bg);
+}
+
+/* Adiciono alguns detalhes desgastados ao fundo */
+.conta-container::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+
+    background: repeating-radial-gradient(
+        circle at 30% 40%,
+        rgba(255, 255, 255, 0.035) 0px,
+        transparent 1px,
+        transparent 4px
+    );
+
+    opacity: 0.35;
+}
+
+/* Pequeno detalhe vermelho na parte superior do formulário */
+.conta-formulario {
+    position: relative;
+    overflow: hidden;
+}
+
+.conta-formulario::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 4px;
+
+    background: linear-gradient(90deg, transparent, var(--accent), #ff456e, var(--accent), transparent);
+}
+
+/* Organizo a área principal do carrinho */
+.carrinho-container {
+    min-height: 75vh;
+    padding: 60px 8%;
+}
+
+/* Título principal */
+.carrinho-container h2 {
+    font-family: "Cinzel", serif;
+    font-size: 32px;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Texto abaixo do título */
+.carrinho-subtitulo {
+    color: var(--text-secondary);
+    margin-top: 8px;
+    margin-bottom: 40px;
+}
+
+/* Organizo os produtos e o resumo lado a lado */
+.carrinho-conteudo {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 35px;
+    align-items: start;
+}
+
+/* Área dos produtos */
+.carrinho-produtos {
+    min-width: 0;
+}
+
+/* Mensagem de carrinho vazio */
+#carrinho-vazio {
+    text-align: center;
+    padding: 60px 20px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+#carrinho-vazio i {
+    font-size: 55px;
+    color: var(--accent);
+}
+
+#carrinho-vazio h3 {
+    font-family: "Cinzel", serif;
+    color: var(--text);
+    margin: 20px 0 10px;
+}
+
+#carrinho-vazio p {
+    color: var(--text-secondary);
+    margin-bottom: 25px;
+}
+
+/* Botão para voltar à loja */
+.carrinho-voltar {
+    display: inline-block;
+    padding: 12px 22px;
+
+    background: var(--surface-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.carrinho-voltar:hover {
+    background: var(--accent);
+    transform: translateY(-3px);
+}
+
+/* Caixa com o resumo do pedido */
+.carrinho-resumo {
+    padding: 28px;
+
+    background: #1a1116;
+    border: 1px solid #70233d;
+    border-radius: 5px;
+
+    box-shadow: 5px 5px 0 rgba(80, 15, 35, 0.2);
+}
+
+.carrinho-resumo h3 {
+    font-family: "Cinzel", serif;
+    color: #e2c6c9;
+    font-size: 19px;
+    margin-bottom: 25px;
+}
+
+/* Organizo as informações dos valores */
+.resumo-linha {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    color: #a99a90;
+    font-family: "Lora", serif;
+    font-size: 14px;
+
+    margin-bottom: 20px;
+}
+
+/* Destaco o valor total */
+.resumo-total {
+    padding-top: 20px;
+    border-top: 1px solid #47202e;
+
+    color: #e2c6c9;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+/* Botão de finalizar compra */
+#finalizar-compra {
+    width: 100%;
+    padding: 15px;
+
+    background: #781d39;
+    border: 1px solid #a52a4d;
+    border-radius: 4px;
+
+    color: #fff0f2;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#finalizar-compra:hover {
+    background: #b52c52;
+    transform: translateY(-3px);
+}
+
+/* Adapto o carrinho para telas menores */
+@media (max-width: 850px) {
+    .carrinho-conteudo {
+        grid-template-columns: 1fr;
+    }
+
+    .carrinho-container {
+        padding: 40px 5%;
+    }
+}
+
+/* Vinyl AI - coluna editorial */
+.vinyl-ai {
+    margin: 55px 0;
+    padding: 30px 0;
+    border-top: 2px solid var(--text);
+    border-bottom: 1px solid var(--border);
+}
+
+/* Cabeçalho */
+.vinyl-ai-cabecalho {
+    margin-bottom: 25px;
+}
+
+.vinyl-ai-status {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.status-ponto {
+    display: none;
+}
+
+.vinyl-ai-cabecalho h2 {
+    margin: 10px 0 5px;
+    color: var(--text);
+    font-size: 32px;
+    letter-spacing: -1px;
+}
+
+.vinyl-ai-cabecalho p {
+    max-width: 500px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Área da curiosidade */
+.vinyl-ai-conteudo {
+    display: block;
+    padding: 22px 0;
+    border-top: 1px solid var(--border);
+}
+
+.vinyl-ai-icone {
+    display: none;
+}
+
+.vinyl-ai-resposta {
+    max-width: 750px;
+}
+
+.vinyl-ai-label {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.vinyl-ai-resposta h3 {
+    margin: 12px 0;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 23px;
+    font-weight: normal;
+}
+
+.vinyl-ai-resposta p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.vinyl-ai-resposta > span:last-child {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+/* Botão editorial */
+.ai-botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 5px;
+    padding: 11px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--accent);
+    border-radius: 0;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.ai-botao:hover {
+    color: var(--accent);
+    transform: translateX(4px);
+}
+
+.ai-botao:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+.ai-botao:disabled i {
+    display: inline-block;
+    animation: girar-icone 1s linear infinite;
+}
+
+@keyframes girar-icone {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+    .vinyl-ai {
+        margin: 35px 0;
+        padding: 22px 0;
+    }
+
+    .vinyl-ai-cabecalho h2 {
+        font-size: 27px;
+    }
+
+    .vinyl-ai-resposta h3 {
+        font-size: 20px;
+    }
+}
+
+/* ========================================
+   PÁGINA DE NOVIDADES
+======================================== */
+
+.novidades-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 45px 0;
+}
+
+/* Banner principal */
+.novidades-banner {
+    min-height: 320px;
+    padding: 55px 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    background:
+        linear-gradient(90deg, rgba(16, 14, 18, 0.95), rgba(16, 14, 18, 0.55)),
+        url("../assets/discos/joydivision.jpg") center/cover;
+    border-left: 4px solid var(--accent);
+    margin-bottom: 65px;
+}
+
+.novidades-banner > span {
+    color: #d68aa1;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.novidades-banner h2 {
+    margin: 18px 0;
+    color: #f4eee7;
+    font-size: clamp(38px, 6vw, 65px);
+    letter-spacing: 2px;
+}
+
+.novidades-banner p {
+    max-width: 500px;
+    color: #d0c3b5;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.novidades-botao {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+    padding-bottom: 7px;
+    color: #e3a0b4;
+    border-bottom: 1px solid #e3a0b4;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.novidades-botao:hover {
+    gap: 18px;
+    color: white;
+}
+
+/* ========================================
+   MATÉRIA EM DESTAQUE
+======================================== */
+
+.materia-destaque {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+    margin: 70px 0;
+}
+
+.materia-imagem {
+    overflow: hidden;
+}
+
+.materia-imagem img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.materia-imagem img:hover {
+    transform: scale(1.04);
+}
+
+.materia-texto {
+    padding: 15px 0;
+}
+
+.materia-categoria {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.materia-texto h2 {
+    margin: 18px 0;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: clamp(25px, 3vw, 34px);
+    line-height: 1.3;
+}
+
+.materia-texto p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.materia-texto a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.materia-texto a:hover {
+    gap: 16px;
+}
+
+/* ========================================
+   CATEGORIAS
+======================================== */
+
+.novidades-categorias {
+    margin: 85px 0;
+}
+
+.novidades-categorias > h2,
+.curiosidades > h2 {
+    margin-bottom: 30px;
+    color: var(--text);
+    font-size: 21px;
+    letter-spacing: 1.5px;
+}
+
+.categorias-grade {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.categoria-card {
+    padding: 25px 20px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.categoria-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.categoria-card i {
+    color: var(--accent);
+    font-size: 25px;
+}
+
+.categoria-card h3 {
+    margin: 17px 0 8px;
+    font-size: 16px;
+}
+
+.categoria-card p {
+    color: var(--text-secondary);
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* ========================================
+   LISTA DE CURIOSIDADES
+======================================== */
+
+.curiosidades {
+    margin: 85px 0 50px;
+}
+
+.curiosidades-grade {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.curiosidade-card {
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.curiosidade-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.curiosidade-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.curiosidade-card:hover img {
+    transform: scale(1.03);
+}
+
+.curiosidade-card > div {
+    padding: 22px;
+}
+
+.curiosidade-card span {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+.curiosidade-card h3 {
+    margin: 12px 0;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 19px;
+    line-height: 1.4;
+}
+
+.curiosidade-card p {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.curiosidade-card a {
+    display: inline-block;
+    margin-top: 18px;
+    padding-bottom: 5px;
+    color: var(--accent);
+    border-bottom: 1px solid var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.curiosidade-card a:hover {
+    color: var(--text);
+}
+
+/* ========================================
+   RESPONSIVIDADE
+======================================== */
+
+@media (max-width: 850px) {
+    .materia-destaque {
+        gap: 25px;
+    }
+
+    .categorias-grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .curiosidades-grade {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .novidades-container {
+        width: 92%;
+        padding-top: 25px;
+    }
+
+    .novidades-banner {
+        min-height: 280px;
+        padding: 30px 22px;
+    }
+
+    .novidades-banner h2 {
+        font-size: 38px;
+    }
+
+    .materia-destaque {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin: 50px 0;
+    }
+
+    .novidades-categorias,
+    .curiosidades {
+        margin: 55px 0;
+    }
+
+    .categorias-grade {
+        gap: 12px;
+    }
+
+    .categoria-card {
+        padding: 18px 14px;
+    }
+
+    .curiosidades-grade {
+        grid-template-columns: 1fr;
+    }
+
+    .curiosidade-card h3 {
+        font-size: 18px;
+    }
+}
+
+/* ========================================
+   PÁGINA DE PRÉ-VENDAS
+======================================== */
+
+/* Banner principal */
+.pv-banner {
+    min-height: 330px;
+    padding: 55px 45px;
+    margin: 45px auto 65px;
+    width: 90%;
+    max-width: 1200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    background:
+        linear-gradient(90deg, rgba(16, 14, 18, 0.95), rgba(16, 14, 18, 0.45)),
+        url("../assets/discos/metallica.jpg") center/cover;
+
+    border-left: 4px solid var(--accent);
+}
+
+.pv-banner span {
+    color: #d68aa1;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.pv-banner h2 {
+    margin: 20px 0;
+    color: #f4eee7;
+    font-size: clamp(38px, 6vw, 65px);
+    letter-spacing: 1px;
+}
+
+.pv-banner p {
+    max-width: 480px;
+    color: #d0c3b5;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Introdução */
+.pv-introducao {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 35px;
+}
+
+.pv-introducao span {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.pv-introducao h2 {
+    margin: 12px 0;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+.pv-introducao p {
+    max-width: 600px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Área dos produtos */
+.pv-produtos {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 65px;
+}
+
+/* Aviso de pré-venda */
+.pv-aviso {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 70px;
+    padding: 25px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+}
+
+.pv-aviso > i {
+    color: var(--accent);
+    font-size: 24px;
+}
+
+.pv-aviso h3 {
+    margin-bottom: 8px;
+    color: var(--text);
+    font-size: 15px;
+}
+
+.pv-aviso p {
+    color: var(--text-secondary);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* Rodapé */
+@media (max-width: 600px) {
+    .pv-banner {
+        width: 92%;
+        min-height: 280px;
+        padding: 30px 22px;
+        margin-top: 25px;
+    }
+
+    .pv-banner h2 {
+        font-size: 37px;
+    }
+
+    .pv-introducao,
+    .pv-produtos {
+        width: 92%;
+    }
+
+    .pv-introducao h2 {
+        font-size: 25px;
+    }
+
+    .pv-aviso {
+        width: 92%;
+        padding: 18px;
+    }
+}
+
+/* ========================================
+   DE VOLTA AO ESTOQUE
+======================================== */
+
+/* Banner */
+.dve-banner {
+    width: 90%;
+    max-width: 1200px;
+    min-height: 330px;
+    margin: 45px auto 65px;
+    padding: 55px 45px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    background:
+        linear-gradient(90deg, rgba(16, 14, 18, 0.95), rgba(16, 14, 18, 0.45)),
+        url("../assets/discos/nirvana.jpg") center/cover;
+
+    border-left: 4px solid var(--accent);
+}
+
+.dve-banner span {
+    color: #d68aa1;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.dve-banner h2 {
+    margin: 20px 0;
+    color: #f4eee7;
+    font-size: clamp(38px, 6vw, 65px);
+    letter-spacing: 1px;
+}
+
+.dve-banner p {
+    max-width: 480px;
+    color: #d0c3b5;
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+/* Introdução */
+.dve-introducao {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 35px;
+}
+
+.dve-introducao span {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.dve-introducao h2 {
+    margin: 12px 0;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+.dve-introducao p {
+    max-width: 600px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Área dos produtos */
+.dve-produtos {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .dve-banner {
+        width: 92%;
+        min-height: 280px;
+        padding: 30px 22px;
+        margin-top: 25px;
+    }
+
+    .dve-banner h2 {
+        font-size: 37px;
+    }
+
+    .dve-introducao,
+    .dve-produtos {
+        width: 92%;
+    }
+
+    .dve-introducao h2 {
+        font-size: 25px;
+    }
+}
+
+/* ========================================
+   PÁGINA DE ARTISTAS
+======================================== */
+
+/* Apresentação */
+.artistas-banner {
+    width: 90%;
+    max-width: 1200px;
+    margin: 45px auto 65px;
+    padding: 45px 0;
+    border-bottom: 2px solid var(--text);
+}
+
+.artistas-banner span {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.artistas-banner h2 {
+    margin: 15px 0;
+    color: var(--text);
+    font-size: clamp(45px, 7vw, 75px);
+    letter-spacing: 2px;
+}
+
+.artistas-banner p {
+    max-width: 550px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Container principal */
+.artistas-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+}
+
+.artistas-cabecalho {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.artistas-cabecalho span {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.artistas-cabecalho h2 {
+    margin-top: 10px;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 30px;
+}
+
+.artistas-cabecalho > p {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+/* Lista de artistas */
+.artistas-lista {
+    border-top: 1px solid var(--border);
+}
+
+.artista-item {
+    width: 100%;
+    padding: 19px 8px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border);
+
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 20px;
+    text-align: left;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.artista-item:hover {
+    padding-left: 17px;
+    color: var(--accent);
+}
+
+.artista-item i {
+    color: var(--accent);
+    font-size: 17px;
+}
+
+/* Discografia do artista */
+.artista-discos {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 80px;
+}
+
+.artista-discos-cabecalho {
+    padding-bottom: 25px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--text);
+}
+
+.artista-discos-cabecalho button {
+    display: block;
+    margin-bottom: 35px;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.artista-discos-cabecalho button:hover {
+    transform: translateX(-4px);
+}
+
+.artista-discos-cabecalho span {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.artista-discos-cabecalho h2 {
+    margin-top: 12px;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 35px;
+}
+
+/* Lista de discos */
+.artista-discos-lista {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.artista-disco {
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: 0.3s;
+}
+
+.artista-disco:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.artista-disco img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.artista-disco-info {
+    padding: 17px;
+}
+
+.artista-disco-info h3 {
+    margin-bottom: 8px;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 17px;
+}
+
+.artista-disco-info p {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.artista-disco-info a {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+}
+
+.artista-disco-info a:hover {
+    text-decoration: underline;
+}
+
+/* Mensagens */
+.artistas-vazio {
+    padding: 30px 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 750px) {
+    .artista-discos-lista {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .artistas-cabecalho {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 500px) {
+    .artistas-banner {
+        margin-top: 25px;
+        padding: 30px 0;
+    }
+
+    .artistas-banner h2 {
+        font-size: 43px;
+    }
+
+    .artistas-container,
+    .artista-discos {
+        width: 92%;
+    }
+
+    .artista-discos-lista {
+        grid-template-columns: 1fr;
+    }
+
+    .artista-discos-cabecalho h2 {
+        font-size: 28px;
+    }
+}
+
+/* ========================================
+   PÁGINA DE CONTATO
+======================================== */
+
+/* Banner principal */
+.contato-banner {
+    width: 90%;
+    max-width: 1200px;
+    margin: 45px auto 65px;
+    padding: 55px 0;
+    border-bottom: 2px solid var(--text);
+}
+
+.contato-banner span {
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.contato-banner h2 {
+    margin: 18px 0;
+    color: var(--text);
+    font-size: clamp(40px, 7vw, 70px);
+    letter-spacing: 1px;
+}
+
+.contato-banner p {
+    max-width: 500px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+/* Área de contato */
+.contato-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto 85px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 70px;
+}
+
+/* Informações */
+.contato-informacoes > span {
+    color: var(--accent);
+    font-size: 10px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.contato-informacoes h2 {
+    margin: 15px 0;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 32px;
+}
+
+.contato-informacoes > p {
+    max-width: 420px;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.contato-detalhe {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-top: 35px;
+}
+
+.contato-detalhe > i {
+    color: var(--accent);
+    font-size: 25px;
+}
+
+.contato-detalhe h3 {
+    margin-bottom: 5px;
+    color: var(--text);
+    font-size: 14px;
+}
+
+.contato-detalhe p {
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+/* Formulário */
+.contato-formulario {
+    padding: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.contato-formulario h2 {
+    margin-bottom: 25px;
+    color: var(--text);
+    font-family: Georgia, serif;
+    font-size: 25px;
+}
+
+.contato-formulario label {
+    display: block;
+    margin: 18px 0 8px;
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.contato-formulario input,
+.contato-formulario textarea {
+    width: 100%;
+    padding: 13px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 0;
+    outline: none;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 13px;
+    resize: vertical;
+    transition: 0.2s;
+}
+
+.contato-formulario input:focus,
+.contato-formulario textarea:focus {
+    border-color: var(--accent);
+}
+
+.contato-formulario input::placeholder,
+.contato-formulario textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.7;
+}
+
+.contato-formulario button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+    padding: 13px 18px;
+    background: var(--accent);
+    border: none;
+    color: #fff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.contato-formulario button:hover {
+    background: var(--border);
+    transform: translateY(-2px);
+}
+
+/* Responsividade */
+@media (max-width: 750px) {
+    .contato-container {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+}
+
+@media (max-width: 500px) {
+    .contato-banner {
+        margin-top: 25px;
+        padding: 35px 0;
+    }
+
+    .contato-banner h2 {
+        font-size: 39px;
+    }
+
+    .contato-container {
+        width: 92%;
+    }
+
+    .contato-formulario {
+        padding: 20px;
+    }
+}
+
+/* Link do GitHub */
+.contato-detalhe a {
+    color: var(--text-secondary);
+    font-size: 13px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.contato-detalhe a:hover {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* Aviso criado dinamicamente pelo JavaScript */
+.alerta-vinyl {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 16px 24px;
+    margin: 20px 40px;
+    background: var(--surface-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+}
+
+.alerta-vinyl p {
+    margin: 0;
+    font-family: "Lora", serif;
+}
+
+.fechar-alerta-vinyl {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.fechar-alerta-vinyl:hover {
+    color: var(--accent);
+}
+
+/* Área responsável pela pesquisa dos discos */
+.filtro-container {
+    position: relative;
+    max-width: 500px;
+    margin: 25px auto 35px;
+}
+
+.filtro-container input {
+    width: 100%;
+    padding: 14px 45px 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text);
+    font-family: "Lora", serif;
+    font-size: 15px;
+    outline: none;
+}
+
+.filtro-container input:focus {
+    border-color: var(--accent);
+}
+
+.filtro-container i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+#nenhum-resultado {
+    text-align: center;
+    color: var(--text-secondary);
+    margin: 25px 0;
+    font-family: "Lora", serif;
+}
+
+/* Seção da lista de desejos */
+.lista-desejos {
+    margin: 60px 40px;
+    padding: 30px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
+
+.lista-desejos h2 {
+    text-align: center;
+}
+
+.lista-desejos > p {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Formulário para adicionar desejos */
+#form-desejos {
+    display: flex;
+    gap: 10px;
+    max-width: 600px;
+    margin: 25px auto;
+}
+
+#nome-desejo {
+    flex: 1;
+    min-width: 0;
+    padding: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text);
+    font-family: "Lora", serif;
+}
+
+#form-desejos button,
+#itens-desejos button {
+    padding: 10px 15px;
+    background: var(--surface-secondary);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: "Lora", serif;
+}
+
+#form-desejos button:hover,
+#itens-desejos button:hover {
+    background: var(--accent);
+}
+
+/* Itens adicionados à lista */
+#itens-desejos {
+    max-width: 700px;
+    margin: 25px auto;
+    padding: 0;
+    list-style: none;
+}
+
+#itens-desejos li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+
+#itens-desejos li span {
+    flex: 1;
+    overflow-wrap: anywhere;
+    color: var(--text);
+}
+
+#itens-desejos .desejo-concluido {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 600px) {
+    .lista-desejos {
+        margin: 40px 15px;
+        padding: 20px 12px;
+    }
+
+    #form-desejos {
+        flex-direction: column;
+    }
+
+    #itens-desejos li {
+        flex-wrap: wrap;
+    }
+}
+
+/* ========================================
+   POP-UP DA CONTA
+======================================== */
+
+.account-menu {
+    position: relative;
+}
+
+#account-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#account-toggle:hover {
+    color: var(--accent);
+}
+
+/* Janela do pop-up */
+.account-panel {
+    display: block;
+    position: absolute;
+    top: calc(100% + 18px);
+    right: 0;
+    width: 290px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.45);
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: 0.25s ease;
+}
+
+/* Mostra o pop-up */
+.account-panel.account-panel-aberto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Pequena seta no topo */
+.account-panel::before {
+    content: "";
+    position: absolute;
+    top: -8px;
+    right: 17px;
+    width: 14px;
+    height: 14px;
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    border-top: 1px solid var(--border);
+    transform: rotate(45deg);
+}
+
+/* Título */
+.account-panel h3 {
+    font-family: "Cinzel", serif;
+    color: var(--text);
+    font-size: 17px;
+    margin: 0 0 8px;
+}
+
+/* Textos */
+.account-panel p {
+    color: var(--text-secondary);
+    font-family: "Lora", serif;
+    font-size: 13px;
+    margin-bottom: 16px;
+}
+
+/* Campos */
+.account-panel input {
+    width: 100%;
+    padding: 11px;
+    margin-bottom: 12px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--text);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.account-panel input:focus {
+    border-color: var(--accent);
+}
+
+/* Botões */
+.account-panel button {
+    width: 100%;
+    padding: 11px;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-family: "Cinzel", serif;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.account-panel button:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+/* Link de cadastro */
+.account-cadastro {
+    text-align: center;
+    margin-top: 16px;
+    margin-bottom: 0 !important;
+}
+
+.account-cadastro a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.account-cadastro a:hover {
+    text-decoration: underline;
+}
+
+/* Ajuste para telas menores */
+@media (max-width: 480px) {
+    .account-panel {
+        width: 260px;
+        right: -55px;
     }
 }

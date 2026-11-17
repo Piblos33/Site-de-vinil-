@@ -1,16 +1,26 @@
+<!-- Não sei onde comentar isso, mas todo o codigo foi versionado pro github!!
+ Piblos33 -->
+
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
+        <!-- Configurações iniciais da página, título e arquivos externos -->
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Loja de Vinil</title>
+
         <link rel="stylesheet" href="/Css!!/style.css" />
+
+        <!-- Biblioteca de ícones utilizada em algumas partes do site -->
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
         />
     </head>
+
     <body>
+        <!-- Cabeçalho principal, com o nome da loja, navegação e ícones -->
+
         <header>
             <h1>Loja de Vinil</h1>
 
@@ -24,27 +34,66 @@
             </nav>
 
             <div class="header-icons">
-                <a href="conta.html">
-                    <i class="bi bi-person-circle"></i>
-                </a>
+                <!-- Menu da conta -->
+                <div class="account-menu">
+                    <button id="account-toggle" aria-label="Abrir menu da conta">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
 
+                    <!-- Painel de login -->
+                    <div class="account-panel" id="account-panel">
+                        <div id="mini-login">
+                            <h3>Entre na sua conta</h3>
+                            <p>Continue explorando a Vinyl.</p>
+
+                            <form id="mini-login-form">
+                                <input type="email" id="mini-email" placeholder="Seu e-mail" required />
+
+                                <input type="password" id="mini-senha" placeholder="Sua senha" required />
+
+                                <button type="submit">ENTRAR</button>
+                            </form>
+
+                            <p class="account-cadastro">
+                                Ainda não tem conta?
+                                <a href="conta.html">Cadastre-se</a>
+                            </p>
+                        </div>
+
+                        <!-- Painel para quem já está logado -->
+                        <div id="mini-logado" style="display: none">
+                            <h3>Bem-vindo à Vinyl!</h3>
+                            <p>Sua sessão está ativa.</p>
+
+                            <button id="mini-sair">SAIR DA CONTA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrinho -->
                 <a href="carrinho.html">
                     <i class="bi bi-cart3"></i>
                 </a>
+
+                <!-- Modo escuro -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                    <i class="bi bi-moon-stars-fill"></i>
+                </button>
             </div>
         </header>
 
         <main>
-            <!-- CARROSSEL DE DISCOS -->
-
+            <!-- Área de destaque com os discos apresentados em formato de carrossel -->
             <section class="carousel-section">
                 <h2>Em destaque</h2>
 
                 <div class="carousel-container">
+                    <!-- Botão para voltar os discos -->
                     <button class="carousel-btn prev" id="prevBtn" aria-label="Discos anteriores">
                         <i class="bi bi-chevron-left"></i>
                     </button>
 
+                    <!-- Imagens que aparecem no carrossel -->
                     <div class="carousel" id="carousel">
                         <div class="carousel-item">
                             <img src="../assets/discos/aero.jpg" alt="Disco 1" />
@@ -75,60 +124,199 @@
                         </div>
                     </div>
 
+                    <!-- Botão para avançar os discos -->
                     <button class="carousel-btn next" id="nextBtn" aria-label="Próximos discos">
                         <i class="bi bi-chevron-right"></i>
                     </button>
                 </div>
             </section>
 
-            <!-- PRODUTOS DISPONÍVEIS -->
-
+            <!-- Área onde ficam os produtos disponíveis para compra -->
             <section class="products-section">
                 <h2>Disponíveis para compra</h2>
 
+                <!-- Campo utilizado para pesquisar discos pelo nome ou artista -->
+                <div class="filtro-container">
+                    <input type="text" id="filtro-discos" placeholder="Pesquisar disco ou artista..." />
+                    <i class="bi bi-search"></i>
+                </div>
+
+                <!-- Mensagem exibida quando nenhum produto corresponde à pesquisa -->
+                <p id="nenhum-resultado" style="display: none">Nenhum disco encontrado. Tente outra pesquisa!</p>
+
                 <div class="products-container">
-                    <a href="disco.html" class="product-card">
+                    <!-- Cada cartão apresenta a capa, o nome, o artista e o preço.
+                     O link direciona para a página de detalhes do disco,
+                     passando seu identificador pela URL. -->
+
+                    <a href="disco.html?id=milk-outside" class="product-card">
                         <img src="../assets/discos/milkoutsideabagofmilk.jpg" alt="Capa do disco" />
                         <h3>Milk Outside a Bag of Milk</h3>
                         <p>Nikita Kryukov</p>
                         <span>R$ 189,90</span>
                     </a>
 
-                    <a href="disco.html" class="product-card">
+                    <a href="disco.html?id=evangelion" class="product-card">
                         <img src="../assets/discos/neongenesis.jpg" alt="Capa do disco" />
                         <h3>Neon Genesis Evangelion</h3>
                         <p>Hideaki Anno</p>
                         <span>R$ 159,90</span>
                     </a>
 
-                    <a href="disco.html" class="product-card">
+                    <a href="disco.html?id=nevermind" class="product-card">
                         <img src="../assets/discos/nirvana.jpg" alt="Capa do disco" />
                         <h3>Nevermind</h3>
                         <p>Kurt Cobain</p>
                         <span>R$ 179,90</span>
                     </a>
 
-                    <a href="disco.html" class="product-card">
+                    <a href="disco.html?id=love-will-tear" class="product-card">
                         <img src="../assets/discos/joydivision.jpg" alt="Capa do disco" />
                         <h3>Love Will Tear Us Apart</h3>
                         <p>Joy Division</p>
                         <span>R$ 199,90</span>
                     </a>
 
-                    <a href="disco.html" class="product-card">
+                    <a href="disco.html?id=disintegration" class="product-card">
                         <img src="../assets/discos/thecure.jpg" alt="Capa do disco" />
                         <h3>Disintegration</h3>
                         <p>The Cure</p>
                         <span>R$ 149,90</span>
                     </a>
+
+                    <a href="disco.html?id=master-of-puppets" class="product-card">
+                        <img src="../assets/discos/metallica.jpg" alt="Capa do disco" />
+                        <h3>Master Of Puppets</h3>
+                        <p>Metallica</p>
+                        <span>R$ 180,00</span>
+                    </a>
+
+                    <a href="disco.html?id=nightmare" class="product-card">
+                        <img src="../assets/discos/avengedsevenfold.jpg" alt="Capa do disco" />
+                        <h3>Nightmare</h3>
+                        <p>Avenged Sevenfold</p>
+                        <span>R$ 139,50</span>
+                    </a>
+
+                    <a href="disco.html?id=bauhaus" class="product-card">
+                        <img src="../assets/discos/bauhaus.jpg" alt="Capa do disco" />
+                        <h3>Bauhaus</h3>
+                        <p>Bauhaus</p>
+                        <span>R$ 170,90</span>
+                    </a>
+
+                    <a href="disco.html?id=colera" class="product-card">
+                        <img src="../assets/discos/colera.jpg" alt="Capa do disco" />
+                        <h3>Tente Mudar o Amanhã</h3>
+                        <p>Cólera</p>
+                        <span>R$ 190,90</span>
+                    </a>
+
+                    <a href="disco.html?id=dead-kennedy" class="product-card">
+                        <img src="../assets/discos/deadkennedy.jpg" alt="Capa do disco" />
+                        <h3>Dead Kennedy</h3>
+                        <p>Dead Kennedy</p>
+                        <span>R$ 170,50</span>
+                    </a>
+
+                    <!-- Outros produtos adicionados ao catálogo -->
+
+                    <a href="disco.html?id=fallen" class="product-card">
+                        <img src="../assets/discos/evanescense.jpg" alt="Disco de Evanescence" />
+                        <h3>Fallen</h3>
+                        <p>Evanescence</p>
+                        <span>R$ 169,90</span>
+                    </a>
+
+                    <a href="disco.html?id=american-idiot" class="product-card">
+                        <img src="../assets/discos/greenday.jpg" alt="Disco de Green Day" />
+                        <h3>American Idiot</h3>
+                        <p>Green Day</p>
+                        <span>R$ 159,90</span>
+                    </a>
+
+                    <a href="disco.html?id=one-x" class="product-card">
+                        <img src="../assets/discos/treedaysgrace.jpg" alt="Disco de Three Days Grace" />
+                        <h3>One-X</h3>
+                        <p>Three Days Grace</p>
+                        <span>R$ 179,90</span>
+                    </a>
+
+                    <a href="disco.html?id=back-in-black" class="product-card">
+                        <img src="../assets/discos/acdc.jpg" alt="Disco de AC/DC" />
+                        <h3>Back in Black</h3>
+                        <p>AC/DC</p>
+                        <span>R$ 189,90</span>
+                    </a>
+
+                    <a href="disco.html?id=brasil" class="product-card">
+                        <img src="../assets/discos/ratosdeporao.jpg" alt="Disco de Ratos de Porão" />
+                        <h3>Brasil</h3>
+                        <p>Ratos de Porão</p>
+                        <span>R$ 149,90</span>
+                    </a>
+
+                    <a href="disco.html?id=gritando-hc" class="product-card">
+                        <img src="../assets/discos/gritandohc.jpg" alt="Disco de Gritando HC" />
+                        <h3>Gritando HC</h3>
+                        <p>Gritando HC</p>
+                        <span>R$ 139,90</span>
+                    </a>
+
+                    <a href="disco.html?id=ok-computer" class="product-card">
+                        <img src="../assets/discos/radiohead.jpg" alt="Disco de Radiohead" />
+                        <h3>OK Computer</h3>
+                        <p>Radiohead</p>
+                        <span>R$ 199,90</span>
+                    </a>
+
+                    <a href="disco.html?id=the-queen-is-dead" class="product-card">
+                        <img src="../assets/discos/thesmiths.jpg" alt="Disco de The Smiths" />
+                        <h3>The Queen Is Dead</h3>
+                        <p>The Smiths</p>
+                        <span>R$ 179,90</span>
+                    </a>
+
+                    <a href="disco.html?id=unknown-pleasures" class="product-card">
+                        <img src="../assets/discos/joydivision.jpg" alt="Disco de Joy Division" />
+                        <h3>Unknown Pleasures</h3>
+                        <p>Joy Division</p>
+                        <span>R$ 189,90</span>
+                    </a>
                 </div>
+            </section>
+            <!-- Lista de desejos do visitante -->
+            <section class="lista-desejos">
+                <h2>Minha lista de desejos</h2>
+
+                <p>Guarde aqui os discos que você ainda quer encontrar!</p>
+
+                <!-- Formulário para adicionar novos discos -->
+                <form id="form-desejos">
+                    <input type="text" id="nome-desejo" placeholder="Qual disco você deseja?" required maxlength="80" />
+
+                    <button type="submit">ADICIONAR</button>
+                </form>
+
+                <!-- Local onde os desejos serão apresentados -->
+                <ul id="itens-desejos"></ul>
+
+                <p id="lista-vazia">Sua lista ainda está vazia.</p>
             </section>
         </main>
 
+        <!-- Rodapé com informações finais da página -->
         <footer>
             <p>meu site</p>
             <p>Desenvolvido por mim!!</p>
         </footer>
+
+        <!-- Arquivos JavaScript responsáveis pelo carrossel e pela troca de tema -->
         <script src="/Java!!/carosel.js"></script>
+        <script src="../Java!!/Tema.js"></script>
+        <script src="/Java!!/aviso.js"></script>
+        <script src="/Java!!/Filtro.js"></script>
+        <script src="/Java!!/Desejos.js"></script>
+        <script src="/Java!!/ContaMenu.js"></script>
     </body>
 </html>

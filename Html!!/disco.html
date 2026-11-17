@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <!-- Configurações iniciais da página e título exibido no navegador -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Detalhes do disco | Vinyl</title>
+
+        <!-- Arquivo principal de estilos do site -->
+        <link rel="stylesheet" href="/Css!!/style.css" />
+
+        <!-- Biblioteca de ícones utilizada nos botões e em outras partes da página -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        />
+    </head>
+
+    <body>
+        <!-- Cabeçalho com o nome da loja, menu de navegação e ícones -->
+        <header>
+            <h1>Loja de Vinil</h1>
+
+            <!-- Links para as outras páginas do site -->
+            <nav>
+                <a href="index.html" class="menu">Início</a>
+                <a href="novidades.html" class="menu">Novidades</a>
+                <a href="pv.html" class="menu">Pré-vendas</a>
+                <a href="dve.html" class="menu">De volta ao estoque</a>
+                <a href="Artistas.html" class="menu">Artistas</a>
+                <a href="contato.html" class="menu">Contato</a>
+            </nav>
+
+            <!-- Ícones para acessar a conta, o carrinho e trocar o tema -->
+            <div class="header-icons">
+                <!-- Menu da conta -->
+                <div class="account-menu">
+                    <button id="account-toggle" aria-label="Abrir menu da conta">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+
+                    <div class="account-panel" id="account-panel">
+                        <!-- Aparece quando o usuário não está conectado -->
+                        <div id="mini-login">
+                            <h3>Entre na sua conta</h3>
+                            <p>Continue explorando a Vinyl.</p>
+
+                            <form id="mini-login-form">
+                                <input type="email" id="mini-email" placeholder="Seu e-mail" required />
+
+                                <input type="password" id="mini-senha" placeholder="Sua senha" required />
+
+                                <button type="submit">ENTRAR</button>
+                            </form>
+
+                            <p class="account-cadastro">
+                                Ainda não tem conta?
+                                <a href="conta.html">Cadastre-se</a>
+                            </p>
+                        </div>
+
+                        <!-- Aparece quando o usuário está conectado -->
+                        <div id="mini-logado" style="display: none">
+                            <h3>Bem-vindo à Vinyl!</h3>
+                            <p>Sua sessão está ativa.</p>
+                            <button id="mini-sair">SAIR DA CONTA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="carrinho.html">
+                    <i class="bi bi-cart3"></i>
+                </a>
+
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                    <i class="bi bi-moon-stars-fill"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Área principal com as informações do disco selecionado -->
+        <main>
+            <section class="disco-detalhes">
+                <!-- Espaço onde aparece a capa do disco -->
+                <div class="disco-imagem">
+                    <img id="disco-capa" src="" alt="Capa do disco" />
+                </div>
+
+                <!-- Informações que serão preenchidas pelo JavaScript -->
+                <div class="disco-info">
+                    <h2 id="disco-nome">Carregando...</h2>
+
+                    <p id="disco-artista"></p>
+
+                    <span id="disco-preco"></span>
+
+                    <p id="disco-descricao"></p>
+
+                    <!-- Botão para adicionar o produto ao carrinho -->
+                    <button id="adicionar-carrinho">
+                        <i class="bi bi-cart-plus"></i>
+                        Adicionar ao carrinho
+                    </button>
+
+                    <!-- Janela que aparece quando alguém tenta adicionar um disco ao carrinho sem entrar na conta -->
+                    <div id="modal-login" class="modal">
+                        <div class="modal-conteudo">
+                            <!-- Botão para fechar a janela -->
+                            <button id="fechar-modal" class="fechar-modal">
+                                <i class="bi bi-x-lg"></i>
+                            </button>
+
+                            <!-- Ícone e mensagem apresentados na janela -->
+                            <i class="bi bi-vinyl modal-icone"></i>
+
+                            <h2>Antes de continuar...</h2>
+
+                            <p>Para adicionar discos ao seu carrinho, você precisa entrar na sua conta ou criar uma.</p>
+
+                            <!-- Link para acessar a página de login -->
+                            <a href="conta.html" class="modal-botao"> Entrar na minha conta </a>
+
+                            <!-- Opção para quem ainda não possui uma conta -->
+                            <p class="modal-cadastro">
+                                Ainda não tem uma conta?
+                                <a href="conta.html">Cadastre-se</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé com as informações finais do site -->
+        <footer>
+            <p>meu site</p>
+            <p>Desenvolvido por mim!!</p>
+        </footer>
+
+        <!-- Arquivos responsáveis pela troca de tema e pelas informações dos discos -->
+        <script src="../Java!!/Catalogo.js"></script>
+        <script src="../Java!!/Tema.js"></script>
+        <script src="../Java!!/disco.js"></script>
+        <script src="../Java!!/ContaMenu.js"></script>
+    </body>
+</html>

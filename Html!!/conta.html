@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-BR">
+    <head>
+        <!-- Configurações iniciais da página -->
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Minha conta | Vinyl</title>
+
+        <!-- Arquivos de estilo e ícones -->
+        <link rel="stylesheet" href="/Css!!/style.css" />
+
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        />
+    </head>
+
+    <body>
+        <!-- Cabeçalho principal -->
+        <header>
+            <h1>Loja de Vinil</h1>
+
+            <nav>
+                <a href="index.html" class="menu">Início</a>
+                <a href="novidades.html" class="menu">Novidades</a>
+                <a href="pv.html" class="menu">Pré-vendas</a>
+                <a href="dve.html" class="menu">De volta ao estoque</a>
+                <a href="Artistas.html" class="menu">Artistas</a>
+                <a href="contato.html" class="menu">Contato</a>
+            </nav>
+
+            <div class="header-icons">
+                <!-- Menu da conta -->
+                <div class="account-menu">
+                    <button id="account-toggle" aria-label="Abrir menu da conta">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+
+                    <div class="account-panel" id="account-panel">
+                        <!-- Aparece quando o usuário não está conectado -->
+                        <div id="mini-login">
+                            <h3>Entre na sua conta</h3>
+
+                            <p>Continue explorando a Vinyl.</p>
+
+                            <form id="mini-login-form">
+                                <input type="email" id="mini-email" placeholder="Seu e-mail" required />
+
+                                <input type="password" id="mini-senha" placeholder="Sua senha" required />
+
+                                <button type="submit">ENTRAR</button>
+                            </form>
+
+                            <p class="account-cadastro">
+                                Ainda não tem conta?
+                                <a href="conta.html">Cadastre-se</a>
+                            </p>
+                        </div>
+
+                        <!-- Aparece quando o usuário já está conectado -->
+                        <div id="mini-logado" style="display: none">
+                            <h3>Bem-vindo à Vinyl!</h3>
+
+                            <p>Sua sessão está ativa.</p>
+
+                            <button id="mini-sair">SAIR DA CONTA</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrinho -->
+                <a href="carrinho.html">
+                    <i class="bi bi-cart3"></i>
+                </a>
+
+                <!-- Alternar tema -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                    <i class="bi bi-moon-stars-fill"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Área principal da página de conta -->
+        <main>
+            <section class="conta-container">
+                <!-- Área de login -->
+                <div class="conta-formulario" id="form-login">
+                    <i class="bi bi-vinyl conta-icone"></i>
+
+                    <h2>Bem-vindo de volta!</h2>
+
+                    <p>Entre na sua conta para continuar.</p>
+
+                    <form id="login-form">
+                        <div class="campo-formulario">
+                            <label for="login-email">E-mail</label>
+
+                            <input type="email" id="login-email" placeholder="Digite seu e-mail" required />
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="login-senha">Senha</label>
+
+                            <input type="password" id="login-senha" placeholder="Digite sua senha" required />
+                        </div>
+
+                        <button type="submit" class="conta-botao">Entrar</button>
+                    </form>
+
+                    <p class="conta-alternativa">
+                        Ainda não tem uma conta?
+                        <a href="#" id="ir-cadastro">Cadastre-se</a>
+                    </p>
+                </div>
+
+                <!-- Área de cadastro -->
+                <div class="conta-formulario" id="form-cadastro" style="display: none">
+                    <i class="bi bi-person-plus conta-icone"></i>
+
+                    <h2>Crie sua conta</h2>
+
+                    <p>Faça seu cadastro para aproveitar a Vinyl.</p>
+
+                    <form id="cadastro-form">
+                        <div class="campo-formulario">
+                            <label for="cadastro-nome">Nome</label>
+
+                            <input type="text" id="cadastro-nome" placeholder="Digite seu nome" required />
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="cadastro-email">E-mail</label>
+
+                            <input type="email" id="cadastro-email" placeholder="Digite seu e-mail" required />
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="cadastro-senha">Senha</label>
+
+                            <input type="password" id="cadastro-senha" placeholder="Crie uma senha" required />
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="confirmar-senha">Confirmar senha</label>
+
+                            <input
+                                type="password"
+                                id="confirmar-senha"
+                                placeholder="Digite a senha novamente"
+                                required
+                            />
+                        </div>
+
+                        <button type="submit" class="conta-botao">Criar conta</button>
+                    </form>
+
+                    <p class="conta-alternativa">
+                        Já possui uma conta?
+                        <a href="#" id="ir-login">Entrar</a>
+                    </p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Rodapé -->
+        <footer>
+            <p>meu site</p>
+            <p>Desenvolvido por mim!!</p>
+        </footer>
+
+        <!-- Arquivos JavaScript -->
+        <script src="../Java!!/Tema.js"></script>
+        <script src="../Java!!/conta.js"></script>
+        <script src="../Java!!/ContaMenu.js"></script>
+    </body>
+</html>

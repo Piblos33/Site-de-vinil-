@@ -1,15 +1,17 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Loja de Vinil</title>
+        <title>Contato | Vinyl</title>
+
         <link rel="stylesheet" href="/Css!!/style.css" />
         <link
             rel="stylesheet"
             href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
         />
     </head>
+
     <body>
         <header>
             <h1>Loja de Vinil</h1>
@@ -24,24 +26,124 @@
             </nav>
 
             <div class="header-icons">
-                <a href="conta.html">
-                    <i class="bi bi-person-circle"></i>
-                </a>
+                <!-- Menu da conta -->
+                <div class="account-menu">
+                    <button id="account-toggle" aria-label="Abrir menu da conta">
+                        <i class="bi bi-person-circle"></i>
+                    </button>
+
+                    <div class="account-panel" id="account-panel">
+                        <!-- Aparece quando o usuário não está conectado -->
+                        <div id="mini-login">
+                            <h3>Entre na sua conta</h3>
+                            <p>Continue explorando a Vinyl.</p>
+
+                            <form id="mini-login-form">
+                                <input type="email" id="mini-email" placeholder="Seu e-mail" required />
+
+                                <input type="password" id="mini-senha" placeholder="Sua senha" required />
+
+                                <button type="submit">ENTRAR</button>
+                            </form>
+
+                            <p class="account-cadastro">
+                                Ainda não tem conta?
+                                <a href="conta.html">Cadastre-se</a>
+                            </p>
+                        </div>
+
+                        <!-- Aparece quando o usuário está conectado -->
+                        <div id="mini-logado" style="display: none">
+                            <h3>Bem-vindo à Vinyl!</h3>
+                            <p>Sua sessão está ativa.</p>
+                            <button id="mini-sair">SAIR DA CONTA</button>
+                        </div>
+                    </div>
+                </div>
 
                 <a href="carrinho.html">
                     <i class="bi bi-cart3"></i>
                 </a>
+
+                <button id="theme-toggle" class="theme-toggle" aria-label="Alternar tema">
+                    <i class="bi bi-moon-stars-fill"></i>
+                </button>
             </div>
         </header>
 
         <main>
-            <h2 id="inicio">Bem vindo!</h2>
-            <p>c</p>
+            <section class="contato-banner">
+                <span>VINYL RECORD STORE • FALE CONOSCO</span>
+                <h2>VAMOS CONVERSAR?</h2>
+                <p>Tem alguma dúvida, sugestão ou quer falar sobre música? Estamos por aqui.</p>
+            </section>
+
+            <section class="contato-container">
+                <div class="contato-informacoes">
+                    <span>ESTAMOS À DISPOSIÇÃO</span>
+                    <h2>Entre em contato.</h2>
+
+                    <p>
+                        Quer saber mais sobre algum disco, tirar dúvidas ou compartilhar uma ideia? Envie uma mensagem.
+                    </p>
+
+                    <div class="contato-detalhe">
+                        <i class="bi bi-envelope"></i>
+                        <div>
+                            <h3>E-mail</h3>
+                            <p>LojaVinil@Gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contato-detalhe">
+                        <i class="bi bi-vinyl"></i>
+                        <div>
+                            <h3>Sobre a Vinyl</h3>
+                            <p>Feita para quem vive música.</p>
+                        </div>
+                    </div>
+
+                    <div class="contato-detalhe">
+                        <i class="bi bi-github"></i>
+                        <div>
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/Piblos33" target="_blank" rel="noopener noreferrer">
+                                github.com/Piblos33
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contato-formulario" id="contato-form">
+                    <h2>Envie sua mensagem</h2>
+
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Seu nome" required />
+
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" placeholder="seuemail@exemplo.com" required />
+
+                    <label for="assunto">Assunto</label>
+                    <input type="text" id="assunto" placeholder="Sobre o que deseja falar?" required />
+
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" rows="6" placeholder="Escreva sua mensagem..." required></textarea>
+
+                    <button type="submit">
+                        ENVIAR MENSAGEM
+                        <i class="bi bi-arrow-right"></i>
+                    </button>
+                </form>
+            </section>
         </main>
 
         <footer>
             <p>meu site</p>
             <p>Desenvolvido por mim!!</p>
         </footer>
+
+        <script src="../Java!!/Tema.js"></script>
+        <script src="../Java!!/contato.js"></script>
+        <script src="../Java!!/ContaMenu.js"></script>
     </body>
 </html>
